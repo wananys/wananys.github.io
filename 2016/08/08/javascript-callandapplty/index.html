@@ -14,7 +14,7 @@ ECAMScript3给Function的原型定义了两个方法，分别是Function.prototy
 <meta property="og:site_name" content="ihzenHuang">
 <meta property="og:description" content="call和apply
 ECAMScript3给Function的原型定义了两个方法，分别是Function.prototype.call和Function.prototype.apply。在实际开发中，特别是一些函数式风格的代码编写中，call和apply尤为重要。">
-<meta property="og:updated_time" content="2016-08-10T09:20:16.681Z">
+<meta property="og:updated_time" content="2016-08-10T09:21:30.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this、call和apply的用法(二)">
 <meta name="twitter:description" content="call和apply
@@ -255,6 +255,9 @@ ECAMScript3给Function的原型定义了两个方法，分别是Function.prototy
 <p>这段代码在绝大部分浏览器都能顺利执行，但由于引擎的内部实现存在差异，在低版本IE中执行，会输出undifined,所以我们必须显式地给对象a设置length属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;</div><div class="line">    length: <span class="number">0</span></div><div class="line">&#125;;</div><div class="line"><span class="built_in">Array</span>.prototype.push.call(a,<span class="string">"first"</span>);</div><div class="line">		</div><div class="line">alert(a.length);  <span class="comment">//输出1</span></div><div class="line">alert(a[<span class="number">0</span>]);  <span class="comment">//first</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>由此我们知道在借用push方法时，要满足两个条件：<br>1.对象本身要可以存取属性<br>2.对象的length属性可读写</p>
+</blockquote>
+<hr>
+<blockquote>
 <p>参考：</p>
 <p>《javascript设计模式与开发实践》曾探著<br><a href="http://ihzen.com/2016/08/06/javascript-this2/" target="_blank" rel="external">this、call、apply用法1</a><br><a href="http://bonsaiden.github.io/JavaScript-Garden/zh/#function.arguments" target="_blank" rel="external">arguments详解</a></p>
 </blockquote>
