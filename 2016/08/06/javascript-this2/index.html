@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>this、call和apply的用法 | ihzenHuang</title>
+  <title>this、call和apply的用法(一) | ihzenHuang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="this的指向除去不常用的with和eval的情况，大致可以分为以下4种情况：1.作为对象的方法2.作为普通函数调用3.构造器调用4.Function.prototype.call或Function.prototype.apply调用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="this、call和apply的用法">
+<meta property="og:title" content="this、call和apply的用法(一)">
 <meta property="og:url" content="http://www.ihzen.com/2016/08/06/javascript-this2/index.html">
 <meta property="og:site_name" content="ihzenHuang">
 <meta property="og:description" content="this的指向除去不常用的with和eval的情况，大致可以分为以下4种情况：1.作为对象的方法2.作为普通函数调用3.构造器调用4.Function.prototype.call或Function.prototype.apply调用。">
-<meta property="og:updated_time" content="2016-08-10T03:07:25.890Z">
+<meta property="og:updated_time" content="2016-08-10T08:42:20.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="this、call和apply的用法">
+<meta name="twitter:title" content="this、call和apply的用法(一)">
 <meta name="twitter:description" content="this的指向除去不常用的with和eval的情况，大致可以分为以下4种情况：1.作为对象的方法2.作为普通函数调用3.构造器调用4.Function.prototype.call或Function.prototype.apply调用。">
   
     <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
@@ -197,7 +197,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      this、call和apply的用法
+      this、call和apply的用法(一)
     </h1>
   
 
@@ -233,10 +233,9 @@
 <p>注意：如果构造器显式地返回了一个<strong>object类型</strong>的对象，那么此次运算结果最终会返回这个对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MyClass = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"sven"</span>;</div><div class="line">    <span class="keyword">return</span>&#123;</div><div class="line">        name: <span class="string">'anne'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> MyClass();</div><div class="line"><span class="built_in">console</span>.log(obj.name);  <span class="comment">//输出：anne</span></div></pre></td></tr></table></figure></p>
 <p>如果<strong>不显式</strong>地返回任何数据（即第一种情况）,或者返回一个<strong>非对象类型</strong>的数据（如下），就不会造成这个问题。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MyClass = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"sven"</span>;</div><div class="line">    <span class="keyword">return</span> <span class="string">'anne'</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> MyClass();</div><div class="line"><span class="built_in">console</span>.log(obj.name);  <span class="comment">//输出：sven</span></div></pre></td></tr></table></figure></p>
 <p>4.Function.prototype.call或Function.prototype.apply调用<br>跟普通的函数调用相比，这两个方法可以<strong>动态改变</strong>传入函数的this。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1 = &#123;</div><div class="line">    name: <span class="string">'sven'</span>,</div><div class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = &#123;</div><div class="line">    name: <span class="string">'anne'</span></div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj1.getName());  <span class="comment">//输出： sven</span></div><div class="line"><span class="built_in">console</span>.log(obj1.getName.call(obj2));  <span class="comment">//输出： anne</span></div></pre></td></tr></table></figure></p>
-<p>1</p>
 <blockquote>
 <p>参考：</p>
-<p>《javascript设计模式与开发实践》曾探著</p>
+<p>《javascript设计模式与开发实践》曾探著<br><a href="http://ihzen.com/2016/08/08/javascript-callandapply/" target="_blank" rel="external">this、call、apply用法1</a></p>
 </blockquote>
 
       
@@ -246,6 +245,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/08/08/javascript-callandapplty/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          this、call和apply的用法(二)
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/25/javascript-delegate/" id="article-nav-older" class="article-nav-link-wrap">
@@ -265,7 +273,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="javascript-this2" data-title="this、call和apply的用法" data-url="http://www.ihzen.com/2016/08/06/javascript-this2/"></div>
+	<div class="ds-thread" data-thread-key="javascript-this2" data-title="this、call和apply的用法(一)" data-url="http://www.ihzen.com/2016/08/06/javascript-this2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
