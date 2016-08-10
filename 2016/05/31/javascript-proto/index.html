@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>constructor, prototype, __proto__ 详解 | ihzenHuang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文为了解决以下问题：
+
+
+__proto__(实际原型)和prototype(原型属性)不一样！！！
+constructor属性(原型对象中包含这个属性，实例当中也同样会继承这个属性)
+prototype属性(constructor.prototype原型对象)
+__proto__属性(实例指向原型对象的指针)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="constructor, prototype, __proto__ 详解">
+<meta property="og:url" content="http://www.ihzen.com/2016/05/31/javascript-proto/index.html">
+<meta property="og:site_name" content="ihzenHuang">
+<meta property="og:description" content="本文为了解决以下问题：
+
+
+__proto__(实际原型)和prototype(原型属性)不一样！！！
+constructor属性(原型对象中包含这个属性，实例当中也同样会继承这个属性)
+prototype属性(constructor.prototype原型对象)
+__proto__属性(实例指向原型对象的指针)">
+<meta property="og:updated_time" content="2016-07-16T07:20:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="constructor, prototype, __proto__ 详解">
+<meta name="twitter:description" content="本文为了解决以下问题：
+
+
+__proto__(实际原型)和prototype(原型属性)不一样！！！
+constructor属性(原型对象中包含这个属性，实例当中也同样会继承这个属性)
+prototype属性(constructor.prototype原型对象)
+__proto__属性(实例指向原型对象的指针)">
+  
+    <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ihzenHuang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/essays/">随笔</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">ihzenHuang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ihzenHuang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/essays/">随笔</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javascript-proto" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/javascript-proto/" class="article-date">
+  	<time datetime="2016-05-30T22:30:09.000Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      constructor, prototype, __proto__ 详解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文为了解决以下问题：</p>
+<blockquote>
+<ul>
+<li><code>__proto__</code>(实际原型)和prototype(原型属性)不一样！！！</li>
+<li><code>constructor</code>属性(原型对象中包含这个属性，实例当中也同样会继承这个属性)</li>
+<li><code>prototype</code>属性(<code>constructor.prototype</code>原型对象)</li>
+<li><code>__proto__</code>属性(实例指向原型对象的指针)</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<p>首先弄清楚几个概念：</p>
+<blockquote>
+<ul>
+<li>什么是对象<br>若干属性的集合</li>
+<li>什么是原型？<br>原型是一个对象，其他对象可以通过它实现继承。</li>
+<li>哪些对象有原型？<br>所有的对象在默认情况下都有一个原型，因为原型本身也是对象，所以每个原型自身又有一个原型（只有一种例外，默认的对象原型在原型链的顶端）<br><strong>任何一个对象都可以成为原型</strong></li>
+</ul>
+</blockquote>
+<p>接下来就是最核心的内容：</p>
+<p><strong>constructor 属性</strong></p>
+<p>constructor属性始终指向创建当前对象的构造函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.constructor); <span class="comment">//输出 function Array()&#123;&#125;</span></div><div class="line"><span class="keyword">var</span> a=&#123;&#125;;</div><div class="line"><span class="built_in">console</span>.log(arr.constructor);<span class="comment">//输出 function Object()&#123;&#125;</span></div><div class="line"><span class="keyword">var</span> bool=<span class="literal">false</span>;</div><div class="line"><span class="built_in">console</span>.log(bool.constructor);<span class="comment">//输出 function Boolean()&#123;&#125;</span></div><div class="line"><span class="keyword">var</span> name=<span class="string">"hello"</span>;</div><div class="line"><span class="built_in">console</span>.log(name.constructor);<span class="comment">//输出 function String()&#123;&#125;</span></div><div class="line"><span class="keyword">var</span> sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(sayName.constrctor)<span class="comment">// 输出 function Function()&#123;&#125;</span></div><div class="line">   </div><div class="line"><span class="comment">//接下来通过构造函数创建instance</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> A();</div><div class="line"><span class="built_in">console</span>.log(a.constructor); <span class="comment">//输出 function A()&#123;&#125;</span></div></pre></td></tr></table></figure>
+<p>以上部分即解释了任何一个对象都有<code>constructor</code>属性，指向创建这个对象的构造函数</p>
+<p><strong>prototype属性</strong></p>
+<p>注意：<code>prototype</code>是每个<strong>函数对象</strong>都具有的属性，被称为<strong>原型对象</strong>，而<code>__proto__</code>属性才是每个<strong>对象</strong>才有的属性。一旦原型对象被赋予属性和方法,那么由相应的构造函数创建的实例会继承<code>prototype</code>上的属性和方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//constructor : A</span></div><div class="line"><span class="comment">//instance : a</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> A();</div><div class="line"></div><div class="line">A.prototype.name=<span class="string">"xl"</span>;</div><div class="line">A.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line">   </div><div class="line"><span class="built_in">console</span>.log(a.name);<span class="comment">// "xl"</span></div><div class="line">a.sayName();<span class="comment">// "xl"</span></div><div class="line">   </div><div class="line"><span class="comment">//那么由constructor创建的instance会继承prototype上的属性和方法</span></div></pre></td></tr></table></figure>
+<p><strong>constructor属性和prototype属性</strong></p>
+<p>每个函数都有<code>prototype</code>属性，而这个<code>prototype</code>的<code>constructor</code>属性会指向这个函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line">   </div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person(<span class="string">"xl"</span>);</div><div class="line">   </div><div class="line"><span class="built_in">console</span>.log(person.constructor); <span class="comment">//输出 function Person()&#123;&#125;</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.constructor);<span class="comment">//输出 function Person()&#123;&#125;</span></div><div class="line"><span class="built_in">console</span>.log(Person.constructor); <span class="comment">//输出 function Function()&#123;&#125;</span></div></pre></td></tr></table></figure>
+<p>如果我们重写(重新定义)这个<code>Person.prototype</code>属性，那么<code>constructor</code>属性的指向就会发生改变了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Person.prototype=&#123;</div><div class="line">    sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">   </div><div class="line"><span class="built_in">console</span>.log(person.constructor==Person); <span class="comment">//输出 false (这里为什么会输出false后面会讲)</span></div><div class="line"><span class="built_in">console</span>.log(Person.constructor==Person); <span class="comment">//输出 false</span></div><div class="line">   </div><div class="line"><span class="built_in">console</span>.log(Person.prototype.constructor);<span class="comment">// 输出 function Object()&#123;&#125; </span></div><div class="line"><span class="comment">//这里为什么会输出function Object()&#123;&#125;</span></div><div class="line"><span class="comment">//还记得之前说过constructor属性始终指向创建这个对象的构造函数吗？</span></div><div class="line">   </div><div class="line">Person.prototype=&#123;</div><div class="line">    sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//这里实际上是对原型对象的重写：</span></div><div class="line">Person.prototype=<span class="keyword">new</span> <span class="built_in">Object</span>()&#123;</div><div class="line">    sayName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//看到了吧。现在Person.prototype.constructor属性实际上是指向Object的。</span></div><div class="line">   </div><div class="line"><span class="comment">//那么我如何能将constructor属性再次指向Person呢？</span></div><div class="line">Person.prototype.constructor=Person;</div></pre></td></tr></table></figure>
+<p>接下来解释为什么,看下面的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">   </div><div class="line"><span class="keyword">var</span> personOne=<span class="keyword">new</span> Person(<span class="string">"xl"</span>);</div><div class="line">   </div><div class="line">Person.prototype = &#123;</div><div class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">   </div><div class="line"><span class="keyword">var</span> personTwo = <span class="keyword">new</span> Person(<span class="string">'XL'</span>);</div><div class="line">   </div><div class="line"><span class="built_in">console</span>.log(personOne.constructor == Person); <span class="comment">//输出true</span></div><div class="line"><span class="built_in">console</span>.log(personTwo.constructor == Person); <span class="comment">//输出false </span></div><div class="line"><span class="comment">//大家可能会对这个地方产生疑惑？为何会第二个会输出false,personTwo不也是由Person创建的吗？这个地方应该要输出true啊？</span></div><div class="line"><span class="comment">//这里就涉及到了JS里面的原型继承</span></div><div class="line"><span class="comment">//这个地方是因为person实例继承了Person.prototype原型对象的所有的方法和属性，包括constructor属性。当Person.prototype的constructor发生变化的时候，相应的person实例上的constructor属性也会发生变化。所以第二个会输出false;</span></div><div class="line"><span class="comment">//当然第一个是输出true，因为改变构造函数的prototype属性是在personOne被创建出来之后。</span></div></pre></td></tr></table></figure>
+<p>接下解释<code>__proto__</code>和<code>prototype</code>属性<br>同样拿上面的代码来解释:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person(<span class="string">"xl"</span>);</div><div class="line">person.sayName(); <span class="comment">//输出 "xl"</span></div><div class="line"></div><div class="line"><span class="comment">//constructor : Person</span></div><div class="line"><span class="comment">//instance : person</span></div><div class="line"><span class="comment">//prototype : Person.prototype</span></div></pre></td></tr></table></figure>
+<p>首先给构造函数的原型对象<code>Person.prototype</code>赋给<code>sayName</code>方法，由构造函数<code>Person</code>创建的实例<code>person</code>会继承原型对象上的<code>sayName</code>方法。</p>
+<p>为什么会继承原型对象的方法？</p>
+<p>因为ECMAscript的发明者为了简化这门语言，同时又保持继承性，采用了<strong>链式继承</strong>的方法。</p>
+<p>由<code>constructor</code>创建的每个<code>instance</code>都有个<code>__proto__</code>属性，它指向<code>constructor.prototype</code>。那么<code>constrcutor.prototype</code>上定义的属性和方法都会被<code>instance</code>所继承.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> personOne=<span class="keyword">new</span> Person(<span class="string">"a"</span>);</div><div class="line"><span class="keyword">var</span> personTwo=<span class="keyword">new</span> Person(<span class="string">"b"</span>);</div><div class="line"></div><div class="line">personOne.sayName(); <span class="comment">// 输出  "a"</span></div><div class="line">personTwo.sayName(); <span class="comment">//输出 "b"</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(personOne.__proto__==Person.prototype); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(personTwo.__proto__==Person.prototype); <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(personOne.constructor==Person); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(personTwo.constructor==Person); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.constructor==Person); <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Person.constructor); <span class="comment">//function Function()&#123;&#125;</span></div><div class="line"><span class="built_in">console</span>.log(Person.__proto__.__proto__); <span class="comment">// Object&#123;&#125;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考文章：</p>
+<p><a href="https://segmentfault.com/a/1190000003017751?_ea=285954" target="_blank" rel="external">constructor, prototype, <code>__proto__</code> 详解</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/31/javascript-scope/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          js的作用域详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/31/javascript-this/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript的this解析</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript-proto" data-title="constructor, prototype, __proto__ 详解" data-url="http://www.ihzen.com/2016/05/31/javascript-proto/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 ihzenHuang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

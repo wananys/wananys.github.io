@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>探索display的神奇用法 | ihzenHuang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="display是css中最常见的一个控制布局属性，每个元素都有一个默认值，常见的默认值为block和inline。block表示块级元素，inline表示行内元素。在移动端的开发中，display尤为重要，选择最适合的display值，可以简化很多代码。下面就来探索一下display中那些神奇的用法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="探索display的神奇用法">
+<meta property="og:url" content="http://www.ihzen.com/2016/03/30/css-display/index.html">
+<meta property="og:site_name" content="ihzenHuang">
+<meta property="og:description" content="display是css中最常见的一个控制布局属性，每个元素都有一个默认值，常见的默认值为block和inline。block表示块级元素，inline表示行内元素。在移动端的开发中，display尤为重要，选择最适合的display值，可以简化很多代码。下面就来探索一下display中那些神奇的用法。">
+<meta property="og:updated_time" content="2016-04-08T13:52:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="探索display的神奇用法">
+<meta name="twitter:description" content="display是css中最常见的一个控制布局属性，每个元素都有一个默认值，常见的默认值为block和inline。block表示块级元素，inline表示行内元素。在移动端的开发中，display尤为重要，选择最适合的display值，可以简化很多代码。下面就来探索一下display中那些神奇的用法。">
+  
+    <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ihzenHuang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/essays/">随笔</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">ihzenHuang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ihzenHuang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/essays/">随笔</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-css-display" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/30/css-display/" class="article-date">
+  	<time datetime="2016-03-30T15:24:49.000Z" itemprop="datePublished">2016-03-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      探索display的神奇用法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/display/">display</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>display是css中最常见的一个控制布局属性，每个元素都有一个默认值，常见的默认值为<code>block</code>和<code>inline</code>。block表示块级元素，inline表示行内元素。<br>在移动端的开发中，display尤为重要，选择最适合的display值，可以简化很多代码。下面就来探索一下display中那些神奇的用法。<br><a id="more"></a></p>
+<p><strong>block</strong></p>
+<blockquote>
+<p>div是一个标准的块级元素，一个块级元素会新开始一行并且尽可能撑满容器。其他块级元素包括p、form和html5中的新元素：header、footer、section等。</p>
+</blockquote>
+<p><strong>inline</strong></p>
+<blockquote>
+<p>span是一个标准的行内元素。行内元素可以在段落中包裹一些文字而不打乱原先的布局。常见的行内元素有：a</p>
+</blockquote>
+<hr>
+<p><strong>none</strong></p>
+<blockquote>
+<p>none也是常用的display值，一些特殊元素的默认display值就是它，例如script。它通常被javascript用来在不删除元素的情况下显示或隐藏元素。<br>它和visibility属性不一样。把display设置成none不会保留元素本该显示的空间，但是<code>visibility:hidden;</code>还会保留。</p>
+<p>以上资料来源：<a href="http://zh.learnlayout.com/display.html" target="_blank" rel="external">http://zh.learnlayout.com/display.html</a></p>
+</blockquote>
+<hr>
+<p><strong>table</strong></p>
+<blockquote>
+<p><code>display:table;</code>可以使元素按table样式渲染<br>table元素在html中是一个包含语义的标签：它描述什么是数据。<br>而<code>display:table</code>属性值只是声明了某些元素在浏览器中的样式，不包含语义。</p>
+<p><code>display:table;</code>布局有一个超强特性：缺少的表格元素会被浏览器以匿名方式创建。<br>例如：我们为元素使用<code>display:table-cell;</code>而不将其父容器设置为<code>display:table-row;</code>浏览器会默认创建出一个表格行，就好像文档中真的存在一个被声明的表格行一样。</p>
+</blockquote>
+<p>table属性下一些常见属性</p>
+<blockquote>
+<p>1.table-row：使该元素按tr样式渲染<br>2.table-cell ：使该元素按td样式渲染<br>3.table-row-group ：使该元素按tbody样式渲染<br>4.table-header-group ：使该元素按thead样式渲染<br>5.table-footer-group ：使该元素按tfoot样式渲染<br>6.table-caption ：使该元素按caption样式渲染<br>7.table-column ：使该元素按col样式渲染<br>8.table-column-group ：使该元素按colgroup样式渲染</p>
+</blockquote>
+<p>其他有用的表格属性</p>
+<blockquote>
+<p><em>table-layout</em>(?):将该属性值设置为fixed可以让浏览器按照固定算法来渲染单元格的宽度。<br><em>border-collapse </em>：定义你的table布局元素之间使用何种形式的边框，是共用边框（值为collapse）还是使用各自独立的边框（值为separate）。<br><em>border-spacing</em>：使用了“<code>border-collapse:separate</code>“，那么可以使用<code>border-spacing</code>属性来定义相邻两个单元格边框间的距离。</p>
+<p>table-cell会被其他一些css属性破坏，例如float和position:absolute,所以<code>display:table-cell</code>与<code>float:left</code>或<code>position:absolute</code>属性最好不要同时使用。设置了该属性的元素对宽度高度敏感，响应padding属性，对margin值无效。</p>
+</blockquote>
+<p>用法：</p>
+<blockquote>
+<p>1.使用display:table-cell与大小不固定元素的垂直居中。<br>2.display:table-cell与两栏自适应布局<br>3.display:table-cell列表布局</p>
+</blockquote>
+<p>以上原文链接：<a href="http://www.frontopen.com/331.html" target="_blank" rel="external">http://www.frontopen.com/331.html</a></p>
+<hr>
+<p><strong>flexbox布局</strong></p>
+<blockquote>
+<p>flex有三个版本，分别对应于display:box; display:flexbox; display:flex</p>
+</blockquote>
+<p>flexbox规范时间表：</p>
+<blockquote>
+<ul>
+<li>2009年7月 工作草案 (display: box;)</li>
+<li>2011年3月 工作草案 (display: flexbox;)</li>
+<li>2011年11月 工作草案 (display: flexbox;)</li>
+<li>2012年3月 工作草案 (display: flexbox;)</li>
+<li>2012年6月 工作草案 (display: flex;)</li>
+<li>2012年9月 候选推荐 (display: flex;)</li>
+</ul>
+</blockquote>
+<p>关于flexbox的使用，将在下一篇文章中解读。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/07/swiper/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          swiper
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/22/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git简易入门</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="css-display" data-title="探索display的神奇用法" data-url="http://www.ihzen.com/2016/03/30/css-display/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 ihzenHuang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>js中client-*,scroll-*,offset-* | ihzenHuang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="先来看问题
+offsetWidth offsetHeight offsetLeft offsetTopclientWidth clientHeight clientLeft clientTopscrollWidth scrollHeight scrollLeft scrollTop
+看到上面这些，是不是有点晕乎乎的感觉，下面来说说其中的区别。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js中client-*,scroll-*,offset-*">
+<meta property="og:url" content="http://www.ihzen.com/2016/04/26/javascript-client/index.html">
+<meta property="og:site_name" content="ihzenHuang">
+<meta property="og:description" content="先来看问题
+offsetWidth offsetHeight offsetLeft offsetTopclientWidth clientHeight clientLeft clientTopscrollWidth scrollHeight scrollLeft scrollTop
+看到上面这些，是不是有点晕乎乎的感觉，下面来说说其中的区别。">
+<meta property="og:updated_time" content="2016-07-17T11:39:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js中client-*,scroll-*,offset-*">
+<meta name="twitter:description" content="先来看问题
+offsetWidth offsetHeight offsetLeft offsetTopclientWidth clientHeight clientLeft clientTopscrollWidth scrollHeight scrollLeft scrollTop
+看到上面这些，是不是有点晕乎乎的感觉，下面来说说其中的区别。">
+  
+    <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ihzenHuang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/essays/">随笔</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">ihzenHuang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ihzenHuang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/essays/">随笔</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javascript-client" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/26/javascript-client/" class="article-date">
+  	<time datetime="2016-04-25T22:35:02.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js中client-*,scroll-*,offset-*
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先来看问题</p>
+<p>offsetWidth offsetHeight offsetLeft offsetTop<br>clientWidth clientHeight clientLeft clientTop<br>scrollWidth scrollHeight scrollLeft scrollTop</p>
+<p>看到上面这些，是不是有点晕乎乎的感觉，下面来说说其中的区别。</p>
+<a id="more"></a>
+<h2 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h2><p><strong>offsetWidth &amp; offsetHeight</strong></p>
+<p>任何HTML元素的只读属性offsetWidth和offsetHeight以CSS像素返回它的屏幕尺寸，返回的尺寸包括元素的边框和内边距（width/height + border + padding），和滚动条。</p>
+<p><strong>offsetLeft &amp; offsetTop</strong></p>
+<p>所有HTML元素拥有offsetLeft和offsetTop属性来返回元素的X和Y坐标</p>
+<p>相对于已定位元素的后代元素和一些其他元素（表格单元），这些属性返回的坐标是相对于祖先元素<br>一般元素，则是相对于文档，返回的是文档坐标</p>
+<p>offsetParent属性指定这些属性所相对的父元素，如果offsetParent为null，则这些属性都是文档坐标</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用offsetLeft和offsetTop来计算e的位置</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementPosition</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0</span>,y = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(e != <span class="literal">null</span>) &#123;</div><div class="line">        x += e.offsetLeft;</div><div class="line">        y += e.offsetTop;</div><div class="line">        e = e.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        x : x,</div><div class="line">        y : y</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="client"><a href="#client" class="headerlink" title="client"></a>client</h2><p>client是一种间接指代，它就是web浏览器客户端，专指它定义的窗口或视口。</p>
+<p><strong>clientWidth &amp; clientHeight</strong></p>
+<p>clientWidth和clientHeight类似于offsetWidth和offsetHeight，不同的是不包含边框大小（width/height + padding）。同时在有滚动条的情况下，clientWidth和clientHeight在其返回值中也不包含滚动条。</p>
+<p>对于<code>&lt;span&gt;</code>等内联元素，总是返回0</p>
+<p><strong>clientLeft &amp; clientTop</strong></p>
+<p>返回元素的内边距的外边缘和他的边框的外边缘的水平距离和垂直距离，通常这些值就等于左边和上边的边框宽度。</p>
+<p>在有滚动条时，并且浏览器将这些滚动条放置在左侧或顶部（反正我是没见过），<code>clientLEft</code>和<code>clientTop</code>就包含这些滚动条的宽度。</p>
+<h2 id="scroll"><a href="#scroll" class="headerlink" title="scroll"></a>scroll</h2><p><strong>scrollWidth &amp; scrollHeight</strong></p>
+<p>这两个属性是元素的内容区域加上内边距，在加上任何溢出内容的尺寸.</p>
+<p>因此，如果没有溢出时，这些属性与<code>clientWidth</code>和<code>clientHeight</code>是相等的。</p>
+<p><strong>scrollLeft &amp; scrollTop</strong></p>
+<p>指定的是元素的滚动条的位置</p>
+<p><code>scrollLeft</code>和<code>scrollTop</code>都是可写的属性，通过设置它们来让元素中的内容滚动。</p>
+<h2 id="document-documentElement和document-body"><a href="#document-documentElement和document-body" class="headerlink" title="document.documentElement和document.body"></a>document.documentElement和document.body</h2><blockquote>
+<p>原来HTML里是<code>document.body</code>  –XHTML里是<code>document.documentElement</code> ,都指的是节点(OR元素)<br><code>document.body.scrollTop</code>属性在xhtml标准网页或者更简单的说是带标签的页面里得到的结果是0，如果不要此标签则一切正常.<br>而在标准w3c下，<code>document.body.scrollTop</code>恒为0，需要用<code>document.documentElement.scrollTop</code>来代替;</p>
+</blockquote>
+<p>可采用以下兼容性写法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> top = <span class="built_in">document</span> .documentElement.scrollTop || <span class="built_in">document</span> .body.scrollTop; </div><div class="line"><span class="comment">//在javascript里||是个好东西，除了能用在if等条件判断里，还能用在变量赋值上。那么上例等同于下例。  </span></div><div class="line"><span class="keyword">var</span> top = <span class="built_in">document</span> .documentElement.scrollTop ? <span class="built_in">document</span> .documentElement.scrollTop : <span class="built_in">document</span> .body.scrollTop; </div><div class="line"><span class="comment">//这么写可以得到很好的兼容性。 </span></div></pre></td></tr></table></figure></p>
+<p>相反，如果不做声明的话，<code>document.documentElement.scrollTop</code>反而会显示为0。</p>
+<hr>
+<p>各个属性：</p>
+<blockquote>
+<p>网页可见区域宽： document .body.clientWidth;<br>网页可见区域高： document .body.clientHeight;<br>网页可见区域宽： document .body.offsetWidth   (包括边线的宽);<br>网页可见区域高： document .body.offsetHeight (包括边线的宽);<br>网页正文全文宽： document .body.scrollWidth;<br>网页正文全文高： document .body.scrollHeight;<br>网页被卷去的高： document .body.scrollTop;<br>网页被卷去的左： document .body.scrollLeft;<br>网页正文部分上： window.screenTop;<br>网页正文部分左： window.screenLeft;<br>屏幕分辨率的高： window.screen.height;<br>屏幕分辨率的宽： window.screen.width;<br>屏幕可用工作区高度： window.screen.availHeight;<br>屏幕可用工作区宽度：window.screen.availWidth; </p>
+</blockquote>
+<hr>
+<p>scrollHeight: 获取对象的滚动高度。<br>scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br>scrollWidth:获取对象的滚动宽度<br>offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度<br>offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置<br>offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置<br>event.clientX 相对文档的水平座标<br>event.clientY 相对文档的垂直座标 </p>
+<hr>
+<p>event.offsetX 相对容器的水平坐标<br>event.offsetY 相对容器的垂直坐标<br>document .documentElement.scrollTop 垂直方向滚动的值<br>event.clientX+document .documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量 </p>
+<hr>
+<blockquote>
+<p>参考资料<br><a href="http://renshengkai.blogchina.com/1534285.html" target="_blank" rel="external">js中document.documentElement 和document.body 以及其属性</a><br><a href="https://segmentfault.com/a/1190000005897042" target="_blank" rel="external">容易混淆client-<em>,scroll-</em>,offset-*</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/10/javascript-swiper/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          jquery图片轮播原理及实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/21/javascript-lazyloadimg/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js图片懒加载</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript-client" data-title="js中client-*,scroll-*,offset-*" data-url="http://www.ihzen.com/2016/04/26/javascript-client/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 ihzenHuang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

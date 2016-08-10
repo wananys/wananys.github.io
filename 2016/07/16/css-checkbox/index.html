@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>《css揭秘》笔记：自定义复选框 | ihzenHuang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用纯css实现了switch开关按钮之后，突然想起在《css揭秘》这本书上看到复选框也是采用相同的原理，在此也做一下纪录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《css揭秘》笔记：自定义复选框">
+<meta property="og:url" content="http://www.ihzen.com/2016/07/16/css-checkbox/index.html">
+<meta property="og:site_name" content="ihzenHuang">
+<meta property="og:description" content="用纯css实现了switch开关按钮之后，突然想起在《css揭秘》这本书上看到复选框也是采用相同的原理，在此也做一下纪录。">
+<meta property="og:updated_time" content="2016-07-18T15:49:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《css揭秘》笔记：自定义复选框">
+<meta name="twitter:description" content="用纯css实现了switch开关按钮之后，突然想起在《css揭秘》这本书上看到复选框也是采用相同的原理，在此也做一下纪录。">
+  
+    <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ihzenHuang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/essays/">随笔</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">ihzenHuang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ihzenHuang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/essays/">随笔</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-css-checkbox" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/16/css-checkbox/" class="article-date">
+  	<time datetime="2016-07-15T23:12:06.000Z" itemprop="datePublished">2016-07-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《css揭秘》笔记：自定义复选框
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用纯css实现了switch开关按钮之后，突然想起在《css揭秘》这本书上看到复选框也是采用相同的原理，在此也做一下纪录。</p>
+<a id="more"></a>
+<p><strong>难题</strong><br>设计师对网页中各种元素都会设计一套自己的样式，但对于复选框和单选框来说，直到今天，它们在绝大多数浏览器中仍然接受默认样式，因此在实现这类效果时，可能会接受默认样式，或者求助于一些糟糕透顶，可访问性极差的hack方案。<br>有没有一种方法，既可以克服这些限制，又能摆脱臃肿的代码呢？</p>
+<p><strong>解决方案</strong></p>
+<p>在选择符（第三版）中，我们得到了一个新的伪类:checked，这个伪类只在复选框被勾选时才匹配，不论是由用户交互触发还是由脚本触发。</p>
+<blockquote>
+<p>小提示<br>伪类选择符:checked和属性选择符[checked]之间的区别在于，后者不会根据用户的交互行为进行更新。<br>因为用户的交互并不会影响到html标签上的属性。</p>
+</blockquote>
+<p>如果直接对复选框设置样式，那么这个伪类并不实用，因为没有多少样式能对复选框起作用，所以，我们基于复选框的勾选状态借助选择符来给其它元素设置样式，它就是<lable>。<br>当<lable>元素与复选框关联之后，也可以起到触发开关的作用。<br>我们为它添加生成性内容（伪元素），并基于复选框的状态来为其设置样式。然后，把真正的复选框隐藏起来（但不能完全删除），再把生成性内容美化，顶替原来的复选框。</lable></lable></p>
+<p>html代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"nochecked"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"nochecked"</span>&gt;</span>未选中!<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>接下来生成一个伪元素，作为美化版的复选框。</p>
+<blockquote>
+<p>在这个例子中，我们添加的样式很简单，但实际上是无穷无尽的，甚至可以跳过css美化这一招，直接将图片设置为复选框的各种状态。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span> + <span class="selector-tag">label</span><span class="selector-pseudo">::before</span>&#123;</div><div class="line">    <span class="attribute">content</span>:<span class="string">'\a0'</span>; </div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">vertical-align</span>: .<span class="number">2em</span>;</div><div class="line">    <span class="attribute">width</span>: .<span class="number">8em</span>;</div><div class="line">    <span class="attribute">height</span>: .<span class="number">8em</span>;</div><div class="line">    <span class="attribute">margin-right</span>: .<span class="number">2em</span>;</div><div class="line">    <span class="attribute">border-radius</span>: .<span class="number">2em</span>;</div><div class="line">    <span class="attribute">background</span>: silver;</div><div class="line">    <span class="attribute">text-indent</span>: .<span class="number">15em</span>;</div><div class="line">    <span class="attribute">line-height</span>: .<span class="number">65</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来给勾选状态加上不同样式，样式很简单，比如换颜色，再加上勾选标记。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">label</span><span class="selector-pseudo">::before</span>&#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'\2713'</span>;</div><div class="line">    <span class="attribute">background</span>: yellowgreen;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>现在我们把原来的复选框以一种不损失可访问性的方式隐藏，这意味着不能用<code>display:none</code>。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span>&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">clip</span>: <span class="built_in">rect</span>(0,0,0,0);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样就完成了，我们得到了一个简单定制化的复选框，我们还可以进一步优化，比如在它聚焦或禁用时改变样式。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span><span class="selector-pseudo">:focus</span> + <span class="selector-tag">label</span><span class="selector-pseudo">::before</span>&#123;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> .<span class="number">1em</span> .<span class="number">1em</span> <span class="number">#58a</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span><span class="selector-pseudo">:disabled</span> + <span class="selector-tag">label</span><span class="selector-pseudo">::before</span>&#123;</div><div class="line">    <span class="attribute">background</span>: gray;</div><div class="line">    <span class="attribute">box-shadow</span>: none;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#555</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果预览:<a href="http://ihzen.com/demos/css-checkbox" target="_blank" rel="external">点击demo</a></p>
+<blockquote>
+<p>参考：<br>《css揭秘》</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/25/javascript-delegate/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          事件委托
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/16/css-switch/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css3实现的switch开关按钮</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="css-checkbox" data-title="《css揭秘》笔记：自定义复选框" data-url="http://www.ihzen.com/2016/07/16/css-checkbox/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 ihzenHuang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

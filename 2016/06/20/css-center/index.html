@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>《css揭秘》笔记：居中方法探讨 | ihzenHuang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在css中对元素进行水平居中是非常简单的：如果它是一个行内元素，就对它的父元素应用text-align:center;如果是一个块级元素，就对自身应用margin:auto;。而如果要对一个元素垂直居中，可能光是想想就令人头皮发麻了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《css揭秘》笔记：居中方法探讨">
+<meta property="og:url" content="http://www.ihzen.com/2016/06/20/css-center/index.html">
+<meta property="og:site_name" content="ihzenHuang">
+<meta property="og:description" content="在css中对元素进行水平居中是非常简单的：如果它是一个行内元素，就对它的父元素应用text-align:center;如果是一个块级元素，就对自身应用margin:auto;。而如果要对一个元素垂直居中，可能光是想想就令人头皮发麻了。">
+<meta property="og:updated_time" content="2016-07-18T05:51:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《css揭秘》笔记：居中方法探讨">
+<meta name="twitter:description" content="在css中对元素进行水平居中是非常简单的：如果它是一个行内元素，就对它的父元素应用text-align:center;如果是一个块级元素，就对自身应用margin:auto;。而如果要对一个元素垂直居中，可能光是想想就令人头皮发麻了。">
+  
+    <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ihzenHuang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/essays/">随笔</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">ihzenHuang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ihzenHuang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/essays/">随笔</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-css-center" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/20/css-center/" class="article-date">
+  	<time datetime="2016-06-19T21:09:34.000Z" itemprop="datePublished">2016-06-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《css揭秘》笔记：居中方法探讨
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在css中对元素进行水平居中是非常简单的：如果它是一个行内元素，就对它的父元素应用<code>text-align:center</code>;如果是一个块级元素，就对自身应用<code>margin:auto;</code>。<br>而如果要对一个元素垂直居中，可能光是想想就令人头皮发麻了。</p>
+<a id="more"></a>
+<p>在本篇中，我们将探索现代css的强大威力，以全新的思路去攻克各种场景下的垂直居中难题。</p>
+<p>我们将使用如下所示的结构代码，并直接插入<code>&lt;body&gt;</code>元素中（实际上我们探讨的技巧与容器无关）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Am I centered yet?<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Center me,please!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>我们将设置一些基本样式，如下所示：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>: <span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">background</span>: <span class="number">#F0F0F0</span>;<span class="attribute">font-size</span>: <span class="number">1em</span>;&#125;</div><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">30em</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">6em</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">1.75</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>得到这样的一个效果，<a href="http://www.ihzen.com/demos/css-center/base.html">[点此预览demo]</a></p>
+<hr>
+<p><strong>1.基于绝对定位的解决方案</strong></p>
+<p>我们先来看一个早期的垂直居中方法，它要求元素具有固定的宽度和高度。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>:<span class="number">50%</span>;</div><div class="line">    <span class="attribute">left</span>:<span class="number">50%</span>;</div><div class="line">    <span class="attribute">margin-top</span>:-<span class="number">3em</span>; <span class="comment">/* 6/2 = 3 */</span></div><div class="line">    <span class="attribute">margin-left</span>:-<span class="number">15em</span> <span class="comment">/* 30/2=15 */</span></div><div class="line">    width: <span class="number">30em</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">6em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>这段代码在本质上做了这样几件事：先把这个元素的左上角放置在视口（或最近的，具有定位属性的祖先元素）的正中心，<br>然后再利用负外边距把它向左、向上移动（移动的距离相当于它自身宽高的一半），从而把元素的正中心放置在视口的正中心。<br>显然，这个方法最大的局限在于它要求元素的宽高是固定的。</p>
+<hr>
+<p><strong>2.利用css变形技巧</strong><br>当我们在<code>translate()</code>变形函数中使用百分比值时，是以这个元素自身的宽度和高度为基准进行换算和移动，运用这一点，我们可以彻底解除对固定尺寸的依赖。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>:<span class="number">50%</span>;</div><div class="line">    <span class="attribute">left</span>:<span class="number">50%</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%,-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>利用这个技巧，可以让宽高不固定的元素垂直居中。<br>当然，上面这个方法也有一些需要注意的地方。<br>-我们有时不能选用绝对定位，因为它对整个布局的影响太过强烈。<br>-如果需要居中的元素已经在高度超过视口，那它的顶部会被视口切掉，有一些办法可以绕过这个问题，但是hack味道过重。<br>-在某些浏览器中，显示有些模糊，因为可能被放置在半个像素上，可以用<code>transform-style:preserve-3d</code>来修复，不过这个修复手段也可以认为是一个hack，难保在未来不会出问题。</p>
+</blockquote>
+<hr>
+<p><strong>3.基于视口单位的解决方案</strong><br>假设我们不想使用绝对定位，仍然可以采用<code>translate()</code>技巧来把这个元素以其自身宽高的一半为距离进行移动；但在缺少left和top的情况下，如何把这个元素的左上角放置在容器的正中心呢？<br>第一反应是用margin属性的百分比值来实现，就像这样：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">50%</span> auto <span class="number">0</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>不过这段代码会产生十分离谱的结果，<a href="http://ihzen.com/demos/css-center/margin.html" target="_blank" rel="external">点击demo</a><br>原因在于margin的百分比值是以父元素的宽度作为解析基准的。<br>我们期望margin的百分比值可以基于视口的尺寸来解析，但实际是行不通的。<br>不过幸运的是，如果只是想把元素相对于视口进行居中，仍然是有希望的。css值与单位定义了一套新的单位，称为视口相关的长度单位。</p>
+<blockquote>
+<p>-vw是与视口宽度相关的，与常人的直觉不符的是，1vw实际上表示视口宽度的1%,<br>-与vw相似,1vh表示视口高度的1%<br>-当视口宽度小于高度时，1vmin等于1vw，否则等于1vh<br>-当视口宽度大于高度时，1vmax等于1vw,否则等于1vh</p>
+</blockquote>
+<p>所以我们可以这么做：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">50vh</span> auto <span class="number">0</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure><br>当然这个技巧的实用性是相当有限的，只适用于在视口中居中的场景。</p>
+<hr>
+<p><strong>4.基于flexbox的解决方案</strong></p>
+<p>这毋庸置疑是最佳解决方案，我们探讨其他方案，仅仅是因为那些方案在浏览器的支持程度上稍微好一些，其实目前现代浏览器对flexbox的支持度已经相当不错了。<br>我们只需写两行声明即可：<br>先给这个待居中的父元素设置<code>display:flex;</code>(这个例子中是<body>元素)<br>再给这个元素自身设置<code>margin:auto</code>(这个例子中是<main>元素)</main></body></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">display</span>:flex;</div><div class="line">    <span class="attribute">min-height</span>: <span class="number">100vh</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">margin</span>:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>当我们使用<code>flexbox</code>时，<code>margin:auto</code>不仅在水平方向上将元素居中，垂直方向上也是如此。</strong><br>还有一点，我们不需要设置任何宽度，（当然，如果需要，也可以指定。）:这个居中元素分配到的宽度等于max-content。<br>如果浏览器不支持flexbox，页面就和起点图一样，虽然没有垂直居中，但完全可以接受。</p>
+<p>flexbox的另一个好处在于，它可以将匿名容器（即没有被标签包裹的文本节点）垂直居中。例如：<br>html代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span>Center me,please!<span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure><br>我们可以借助flexbox规范引入的align-items和justify-content属性，让它内部的文本也实现居中。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">display</span>:flex;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="http://ihzen.com/demos/css-center/flexbox.html" target="_blank" rel="external">点击查看demo</a></p>
+<hr>
+<p><strong>使用table</strong><br>该方法我们不再探讨</p>
+<p><strong>使用table-cell居中</strong><br>上面说得table在现在来说有点过时，但我们仍然可以把一个div元素通过<code>display:table;</code>把它模拟成一个表格。</p>
+<p>html代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table-box"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table-cell"</span>&gt;</span>Center me,please!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.table-box</span>&#123;</div><div class="line">    <span class="attribute">display</span>: table;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.table-cell</span>&#123;</div><div class="line">    <span class="attribute">display</span>: table-cell;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">    <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://ihzen.com/demos/css-center/table.html" target="_blank" rel="external">点击查看demo</a></p>
+<p><strong>关于未来</strong><br>根据盒对齐模型（第三版）的计划，在未来，对于简单的垂直居中需要，我们完全不需要动用特殊的布局模式了，因为只需要下面这行代码就可以搞定：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">align-self</span><span class="selector-pseudo">:center</span>;</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>参考链接：<br>原文来自《css揭秘》这本书。<br>table布局：<a href="https://css-tricks.com/centering-in-the-unknown/" target="_blank" rel="external">Centering in the Unknown</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/16/css-switch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          css3实现的switch开关按钮
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/11/javascript-tab/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用面向对象方式封装选项卡</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="css-center" data-title="《css揭秘》笔记：居中方法探讨" data-url="http://www.ihzen.com/2016/06/20/css-center/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 ihzenHuang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
