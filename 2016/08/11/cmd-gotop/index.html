@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://www.ihzen.com/2016/08/11/cmd-gotop/index.html">
 <meta property="og:site_name" content="ihzenHuang">
 <meta property="og:description" content="遇到一个大写的坑，必须记录下来…">
-<meta property="og:updated_time" content="2016-08-11T08:10:22.707Z">
+<meta property="og:updated_time" content="2016-08-11T08:11:21.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Firefox下关于animate的一点小坑">
 <meta name="twitter:description" content="遇到一个大写的坑，必须记录下来…">
@@ -219,7 +219,7 @@
       
         <p>遇到一个大写的坑，必须记录下来…</p>
 <a id="more"></a>
-<p>很久都没做过PC端页面，特别是不同浏览器的兼容，简直比移动端杀伤力强一万倍。于是在好不容易兼容到IE8后，终于长舒一口气，然而我还没坐下来好好喝口水，我们的产品给我发了一张图，他说返回顶部在火狐没反应。先看我的代码是这么写的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"html body"</span>).animate(&#123;</div><div class="line">    scrollTop:<span class="number">0</span></div><div class="line">&#125;,<span class="number">500</span>);</div></pre></td></tr></table></figure><br>我左看右看上看下看，没错啊，难道独树一帜的火狐对animate都不支持了？(内心org：我就是这么天马行空，一言不合就怀疑世界…)<br>带着这股疑惑我打开了谷歌,what？原来要用<code>$(‘html,body’)</code><br>把代码改成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"html body"</span>).animate(&#123;</div><div class="line">    scrollTop:<span class="number">0</span></div><div class="line">&#125;,<span class="number">500</span>);</div></pre></td></tr></table></figure><br>果然好了。<br>必须记录这个小坑，毕竟像我一样从移动端转PC端的妹纸很健忘。</p>
+<p>很久都没做过PC端页面，特别是不同浏览器的兼容，简直比移动端杀伤力强一万倍。于是在好不容易兼容到IE8后，终于长舒一口气，然而我还没坐下来好好喝口水，我们的产品给我发了一张图，他说返回顶部在火狐没反应。先看我的代码是这么写的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"html body"</span>).animate(&#123;</div><div class="line">    scrollTop:<span class="number">0</span></div><div class="line">&#125;,<span class="number">500</span>);</div></pre></td></tr></table></figure><br>我左看右看上看下看，没错啊，难道独树一帜的火狐对animate都不支持了？(内心org：我就是这么天马行空，一言不合就怀疑世界…)<br>带着这股疑惑我打开了谷歌,what？原来要用<code>$(‘html,body’)</code><br>把代码改成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"html,body"</span>).animate(&#123;</div><div class="line">    scrollTop:<span class="number">0</span></div><div class="line">&#125;,<span class="number">500</span>);</div></pre></td></tr></table></figure><br>果然好了。<br>必须记录这个小坑，毕竟像我一样从移动端转PC端的妹纸很健忘。</p>
 <blockquote>
 <p>补充资料<br><code>$(&#39;html,body&#39;)</code>  <code>chrome</code> <code>firefox</code> <code>safari</code> <code>IE</code><br><code>$(&#39;body&#39;)</code>  <code>chrome</code> <code>safari</code><br><code>$(&#39;html&#39;)</code>  <code>Firefox</code> <code>IE</code></p>
 </blockquote>
