@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: css | ihzenHuang</title>
+  <title>Firefox下关于animate的一点小坑 | ihzenHuang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ihzenHuang">
-<meta property="og:url" content="http://www.ihzen.com/tags/css/index.html">
+  <meta name="description" content="遇到一个大写的坑，必须记录下来…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Firefox下关于animate的一点小坑">
+<meta property="og:url" content="http://www.ihzen.com/2016/08/11/cmd-gotop/index.html">
 <meta property="og:site_name" content="ihzenHuang">
-<meta property="og:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github">
+<meta property="og:description" content="遇到一个大写的坑，必须记录下来…">
+<meta property="og:updated_time" content="2016-08-11T08:10:22.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ihzenHuang">
-<meta name="twitter:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github">
+<meta name="twitter:title" content="Firefox下关于animate的一点小坑">
+<meta name="twitter:description" content="遇到一个大写的坑，必须记录下来…">
   
     <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
   
@@ -179,146 +180,97 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-cmd-gotop" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/08/11/cmd-gotop/" class="article-date">
+  	<time datetime="2016-08-11T15:46:09.000Z" itemprop="datePublished">2016-08-11</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Firefox下关于animate的一点小坑
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/16/css-checkbox/" class="archive-article-date">
-  	<time datetime="2016-07-15T23:12:06.000Z" itemprop="datePublished">Jul 15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/16/css-checkbox/">《css揭秘》笔记：自定义复选框</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遇到一个大写的坑，必须记录下来…</p>
+<a id="more"></a>
+<p>很久都没做过PC端页面，特别是不同浏览器的兼容，简直比移动端杀伤力强一万倍。于是在好不容易兼容到IE8后，终于长舒一口气，然而我还没坐下来好好喝口水，我们的产品给我发了一张图，他说返回顶部在火狐没反应。先看我的代码是这么写的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"html body"</span>).animate(&#123;</div><div class="line">    scrollTop:<span class="number">0</span></div><div class="line">&#125;,<span class="number">500</span>);</div></pre></td></tr></table></figure><br>我左看右看上看下看，没错啊，难道独树一帜的火狐对animate都不支持了？(内心org：我就是这么天马行空，一言不合就怀疑世界…)<br>带着这股疑惑我打开了谷歌,what？原来要用<code>$(‘html,body’)</code><br>把代码改成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"html body"</span>).animate(&#123;</div><div class="line">    scrollTop:<span class="number">0</span></div><div class="line">&#125;,<span class="number">500</span>);</div></pre></td></tr></table></figure><br>果然好了。<br>必须记录这个小坑，毕竟像我一样从移动端转PC端的妹纸很健忘。</p>
+<blockquote>
+<p>补充资料<br><code>$(&#39;html,body&#39;)</code>  <code>chrome</code> <code>firefox</code> <code>safari</code> <code>IE</code><br><code>$(&#39;body&#39;)</code>  <code>chrome</code> <code>safari</code><br><code>$(&#39;html&#39;)</code>  <code>Firefox</code> <code>IE</code></p>
+</blockquote>
+<hr>
+<p>参考来源:<br><a href="http://lamb-mei.com/432/jquery-animate-scrolltop-not-working-in-firefox/" target="_blank" rel="external">JQuery Animate scrollTop not working in Firefox</a></p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-	</div>
-
-          <!--
--->
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/08/javascript-callandapplty/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">this、call和apply的用法(二)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/16/css-switch/" class="archive-article-date">
-  	<time datetime="2016-07-15T21:30:34.000Z" itemprop="datePublished">Jul 15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/16/css-switch/">css3实现的switch开关按钮</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-	</div>
 
-          <!--
--->
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/20/css-center/" class="archive-article-date">
-  	<time datetime="2016-06-19T21:09:34.000Z" itemprop="datePublished">Jun 19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/20/css-center/">《css揭秘》笔记：居中方法探讨</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-	</div>
 
-          <!--
--->
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/10/css-border/" class="archive-article-date">
-  	<time datetime="2016-06-10T12:12:09.000Z" itemprop="datePublished">Jun 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/10/css-border/">border:0与border:none的区别</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-	</div>
 
-          <!--
--->
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="cmd-gotop" data-title="Firefox下关于animate的一点小坑" data-url="http://www.ihzen.com/2016/08/11/cmd-gotop/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-    
+
+
 
 </div>
       <footer id="footer">
@@ -344,9 +296,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
