@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ihzen.com/about/index.html</loc>
+    
+    <lastmod>2016-08-12T06:58:19.014Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.ihzen.com/2016/04/26/javascript-closure/</loc>
     
-    <lastmod>2016-08-12T03:10:23.680Z</lastmod>
+    <lastmod>2016-08-12T06:55:00.657Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.ihzen.com/2016/03/13/hello-hexo/</loc>
+    
+    <lastmod>2016-08-12T06:45:08.434Z</lastmod>
     
   </url>
   
@@ -89,20 +103,6 @@
     <loc>http://www.ihzen.com/2016/06/11/javascript-tab/</loc>
     
     <lastmod>2016-07-16T09:20:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/about/index.html</loc>
-    
-    <lastmod>2016-07-16T08:07:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/2016/03/13/hello-world/</loc>
-    
-    <lastmod>2016-07-16T08:04:16.000Z</lastmod>
     
   </url>
   

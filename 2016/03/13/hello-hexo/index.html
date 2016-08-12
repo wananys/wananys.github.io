@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>ihzenHuang</title>
+  <title>hello hexo | ihzenHuang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ihzenHuang">
-<meta property="og:url" content="http://www.ihzen.com/page/3/index.html">
+  <meta name="description" content="还记得大学里第一门课是c语言，写的第一个程序是hello word。而现在搭好博客，写的第一篇文章竟然也是hello word。就当这是一个开始吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hello hexo">
+<meta property="og:url" content="http://www.ihzen.com/2016/03/13/hello-hexo/index.html">
 <meta property="og:site_name" content="ihzenHuang">
-<meta property="og:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github">
+<meta property="og:description" content="还记得大学里第一门课是c语言，写的第一个程序是hello word。而现在搭好博客，写的第一篇文章竟然也是hello word。就当这是一个开始吧。">
+<meta property="og:updated_time" content="2016-08-12T06:45:08.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ihzenHuang">
-<meta name="twitter:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github">
+<meta name="twitter:title" content="hello hexo">
+<meta name="twitter:description" content="还记得大学里第一门课是c语言，写的第一个程序是hello word。而现在搭好博客，写的第一篇文章竟然也是hello word。就当这是一个开始吧。">
   
     <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
   
@@ -175,9 +176,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-hello-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hello-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/13/hello-hexo/" class="article-date">
@@ -193,43 +192,82 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/13/hello-hexo/">hello hexo</a>
+    <h1 class="article-title" itemprop="name">
+      hello hexo
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>还记得大学里第一门课是c语言，写的第一个程序是hello word。而现在搭好博客，写的第一篇文章竟然也是hello word。就当这是一个开始吧。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 	</div>
 
-      <!--
+        <!--
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/essays/">essays</a>
 	</div>
 
 -->
+        <div class="clearfix"></div>
+      </div>
       
-        <p class="article-more-link">
-          <a  href="/2016/03/13/hello-hexo/#more">more >></a>
-        </p>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-      <div class="clearfix"></div>
+        <blockquote>
+<p>还记得大学里第一门课是c语言，写的第一个程序是hello word。而现在搭好博客，写的第一篇文章竟然也是hello word。就当这是一个开始吧。<br><a id="more"></a></p>
+<p>很早以前就想开一个自己的博客，但是一直嫌麻烦，所以迟迟不肯下手。这次是看了<a href="http://www.barretlee.com" target="_blank" rel="external">小胡子哥</a>的博客，深受启发，就想着自己也搭一个吧。但是作为一个小白，github、nodejs、hexo、markdown只属于听过的阶段，实操起来确实有困难，找了几篇教程，最后参考 <a href="http://yebujimo.com/2015/03/15/Mac下搭建Hexo博客教程/" target="_blank" rel="external">Mac下搭建Hexo博客教程</a>，主题参考： <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>，折腾了好几天，终于像模像样了，鼓掌!!!</p>
+<p>关于如何搭建hexo+github，具体参考 <a href="http://yebujimo.com/2015/03/15/Mac下搭建Hexo博客教程/" target="_blank" rel="external">Mac下搭建Hexo博客教程</a>，当然网上也还有很多教程，很多都写的很详细，对于新手来说也不是难事。</p>
+</blockquote>
+<p>在此我记录一些常用语法及搭建过程中遇到的问题。</p>
+<p><strong>常用命令</strong></p>
+<p>1.初始化一个网站。如果没有提供folder，将在当前目录创建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init [folder]</div></pre></td></tr></table></figure>
+<p>2.创建一篇文章。layout布局：post 、 page 和 draft。标题如果有空格要加引号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<p>3.生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo generate  //简写 g</div><div class="line">//可使用以下命令生成完后直接部署。</div><div class="line">$ hexo g -d</div></pre></td></tr></table></figure>
+<p>4.发布为草稿</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo publish [layout] &lt;filename&gt; </div></pre></td></tr></table></figure>
+<p>5.启动一个本地服务，默认访问<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server //简写s</div></pre></td></tr></table></figure>
+<p>6.部署站点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>7.删除缓存文件db.json以及生成的public目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div></pre></td></tr></table></figure>
+<p><strong>问题集锦</strong></p>
+<blockquote>
+<p>1.配置SSH keys<br>配置SSH的好处在于同步代码到github时不用输密码，然后我配置完成后，每次deploy还是要输密码，在网上查了一下，可能是因为我的地址配置成了https,所以每次难免输密码，对于如何解决这个难题，还在摸索中，在此记录。</p>
+<p>2.多台电脑同步<br>关于多台电脑同步的问题，除了使用u盘拷贝，目前还没找到一个比较好的解决方法。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://yebujimo.com/2015/03/15/Mac下搭建Hexo博客教程/" target="_blank" rel="external">Mac下搭建Hexo博客教程</a></p>
+</blockquote>
+
+      
     </div>
     
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/16/markdown/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          markdown常用语法
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -238,15 +276,28 @@
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="hello-hexo" data-title="hello hexo" data-url="http://www.ihzen.com/2016/03/13/hello-hexo/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -270,8 +321,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
