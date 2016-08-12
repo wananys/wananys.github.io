@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ihzen.com/2016/08/08/javascript-callandapplty/</loc>
+    
+    <lastmod>2016-08-12T07:30:18.100Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.ihzen.com/about/index.html</loc>
     
-    <lastmod>2016-08-12T07:25:02.923Z</lastmod>
+    <lastmod>2016-08-12T07:29:47.022Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.ihzen.com/2016/08/06/javascript-this2/</loc>
+    
+    <lastmod>2016-08-12T07:28:48.071Z</lastmod>
     
   </url>
   
@@ -26,20 +40,6 @@
     <loc>http://www.ihzen.com/2016/08/11/cmd-gotop/</loc>
     
     <lastmod>2016-08-11T08:14:10.945Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/2016/08/08/javascript-callandapplty/</loc>
-    
-    <lastmod>2016-08-10T09:21:30.122Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/2016/08/06/javascript-this2/</loc>
-    
-    <lastmod>2016-08-10T08:42:20.882Z</lastmod>
     
   </url>
   
@@ -117,13 +117,6 @@
     <loc>http://www.ihzen.com/2016/05/31/javascript-proto/</loc>
     
     <lastmod>2016-07-16T07:20:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/2016/05/31/javascript-this/</loc>
-    
-    <lastmod>2016-07-16T07:06:20.000Z</lastmod>
     
   </url>
   
