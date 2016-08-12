@@ -197,7 +197,7 @@ a {
 #container {
   position: relative;
   min-height: 100%;
-  max-width: 1100px;
+  min-width: 1100px;
   margin: 0 auto;
 }
 #container #mobile-nav {
@@ -1461,7 +1461,7 @@ a {
   background: #272822;
   margin: 10px 0;
   padding: 10px 10px;
-  overflow: auto;
+  overflow: inherit;
   color: #4c4c4c;
   line-height: 22.400000000000002px;
 }
