@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://www.ihzen.com/2016/05/31/javascript-proto_/index.html">
 <meta property="og:site_name" content="尔小之">
 <meta property="og:description" content="我们知道，在js中一切皆为对象(Object),但是js中并没有类(class),js是基于原型(prototype-based)来实现的面向对象(OOP)的编程规范。今天我们就来学习一下原型和原型链的理解。">
-<meta property="og:updated_time" content="2016-08-17T06:13:16.841Z">
+<meta property="og:updated_time" content="2016-08-17T09:40:03.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 原型和原型链">
 <meta name="twitter:description" content="我们知道，在js中一切皆为对象(Object),但是js中并没有类(class),js是基于原型(prototype-based)来实现的面向对象(OOP)的编程规范。今天我们就来学习一下原型和原型链的理解。">
@@ -219,9 +219,12 @@
 <p>本文回答以下问题：<br>1.什么是对象？<br>2.什么是原型？<br>3.哪些对象上有原型？<br>4.什么是原型链？<br>5.原型的使用方法<br>6.hasOwnProperty函数的作用<br>7.constructor和<code>__proto__</code>以及prototype的使用区别</p>
 </blockquote>
 <hr>
-<blockquote>
-<p><strong>认识原型</strong><br>在</p>
-</blockquote>
+<p><strong>什么是对象</strong><br>对象是若干属性的集合</p>
+<p><strong>什么是原型</strong><br>原型是一个对象，其他对象可以通过它实现继承。</p>
+<p><strong>哪些对象有原型</strong><br>所有的对象在默认情况下都有一个原型，因为原型本身也是对象，所以每个原型自身又有一个原型（只有一种例外，默认的对象原型在原型链的顶端）</p>
+<hr>
+<p><strong>认识原型</strong></p>
+<p>在javascript中，原型也是一个对象，通过原型可以实现对象的属性继承。Javascript对象中都包含了一个<code>prototype</code>内部属性，这个属性所对应的就是该对象的原型。</p>
 <p>在MDN中有一句这样的话：在javascript中每个对象都有一个指向它的原型对象的内部链接。<br>现在我们来看看，作为新人刚学javascript的时候，我们都是这样来写代码的:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> decimalDigits = <span class="number">2</span>,</div><div class="line">    tax = <span class="number">5</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">subtract</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x - y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(add(<span class="number">1</span>,<span class="number">3</span>));</div><div class="line"></div></pre></td></tr></table></figure><br>以上这段代码我们是通过执行各个function来得到结果，而我们在学习了原型之后，可以使用如下方式进行<strong>美化</strong>代码。</p>
 <p><strong>原型使用方式1</strong><br>在使用原型之前，我们需要先将代码做一下小修改：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Calculator = <span class="function"><span class="keyword">function</span>(<span class="params">decimalDigits, tax</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.decimalDigits = decimalDigits;</div><div class="line">    <span class="keyword">this</span>.tax = tax;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>然后通过给Calculator对象的prototype属性赋值对象字面量来设定Calculator对象的原型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Calculator.prototype = &#123;</div><div class="line">    add: <span class="function"><span class="keyword">function</span> (<span class="params">x,y</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> x + y;</div><div class="line">    &#125;,</div><div class="line">    subtract: <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> x - y;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">alert((<span class="keyword">new</span> Calculator()).add(<span class="number">1</span>,<span class="number">3</span>));</div></pre></td></tr></table></figure></p>
@@ -239,18 +242,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/31/javascript-scope/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/05/31/javascript-proto/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          js的作用域详解
+          constructor, prototype, __proto__ 详解
         
       </div>
     </a>
   
   
-    <a href="/2016/05/31/javascript-proto/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">constructor, prototype, __proto__ 详解</div>
+    <a href="/2016/05/10/javascript-swiper/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jquery图片轮播原理及实现</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
