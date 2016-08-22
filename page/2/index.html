@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/兼容性/" style="font-size: 13.33px;">兼容性</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/border/" style="font-size: 10px;">border</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/this/" style="font-size: 15px;">this</a> <a href="/tags/兼容性/" style="font-size: 15px;">兼容性</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
 					</div>
 				</section>
 				
@@ -177,560 +177,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-javascript-scope" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/javascript-scope/" class="article-date">
-  	<time datetime="2016-05-31T00:10:34.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/javascript-scope/">js的作用域详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>JS中的作用域，大家都知道的，分为全局作用域和局部作用域，没有块级作用域，听起来其实很简单的，可是作用域是否能够有深入的了解，对于JS代码逻辑的编写成功率，BUG的解决能力，以及是否能写出更优秀的代码，都有很重要的影响的，如果想要写出更优雅更高效的逻辑代码，那么就要深入的了解一下作用域的问题了，确切的说，是要更深入的了解一下，怎么更有效更巧妙的利用作用域。</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/javascript-scope/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-proto" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/javascript-proto/" class="article-date">
-  	<time datetime="2016-05-30T22:30:09.000Z" itemprop="datePublished">2016-05-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/javascript-proto/">constructor, prototype, __proto__ 详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文为了解决以下问题：</p>
-<blockquote>
-<ul>
-<li><code>__proto__</code>(实际原型)和prototype(原型属性)不一样！！！</li>
-<li><code>constructor</code>属性(原型对象中包含这个属性，实例当中也同样会继承这个属性)</li>
-<li><code>prototype</code>属性(<code>constructor.prototype</code>原型对象)</li>
-<li><code>__proto__</code>属性(实例指向原型对象的指针)</li>
-</ul>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/javascript-proto/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-proto_" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/javascript-proto_/" class="article-date">
-  	<time datetime="2016-05-30T22:30:09.000Z" itemprop="datePublished">2016-05-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/javascript-proto_/">javascript 原型和原型链</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们知道，在js中一切皆为对象(Object),但是js中并没有类(class),js是基于原型(prototype-based)来实现的面向对象(OOP)的编程规范。今天我们就来学习一下原型和原型链的理解。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型链/">原型链</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/javascript-proto_/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-swiper" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/10/javascript-swiper/" class="article-date">
-  	<time datetime="2016-05-09T22:42:00.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/10/javascript-swiper/">jquery图片轮播原理及实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>轮播的原理:<br>1.很多时候使用ul列表去展示，这有一些好处，比如float对齐之类的，当然直接用p或者div也行。<br>2.了解overflow属性。在溢出情况下的处理。其实轮播就是不断的处理li溢出的情况。<br>3.jQuery animate的动画效果。也可以使用setInterval。<br>4.对定位的了解，margin和position。<br>5.循环轮播。需要对节点进行重新的修改。<br>具体而言就是在轮播到最后一张图片的时候，修改节点，将第一个节点，添加到列表的最后一个位置。</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-jQuery/">javascript jQuery</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/10/javascript-swiper/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-client" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/26/javascript-client/" class="article-date">
-  	<time datetime="2016-04-25T22:35:02.000Z" itemprop="datePublished">2016-04-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/26/javascript-client/">js中client-*,scroll-*,offset-*</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先来看问题</p>
-<p>offsetWidth offsetHeight offsetLeft offsetTop<br>clientWidth clientHeight clientLeft clientTop<br>scrollWidth scrollHeight scrollLeft scrollTop</p>
-<p>看到上面这些，是不是有点晕乎乎的感觉，下面来说说其中的区别。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/26/javascript-client/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-closure" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/26/javascript-closure/" class="article-date">
-  	<time datetime="2016-04-25T19:35:02.000Z" itemprop="datePublished">2016-04-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/26/javascript-closure/">深入理解javascript中的闭包</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于javascript程序员来说，闭包是一个难懂又必须征服的概念。闭包的形成与变量的作用域以及变量的生存周期密切相关。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/26/javascript-closure/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-lazyloadimg" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/21/javascript-lazyloadimg/" class="article-date">
-  	<time datetime="2016-04-20T23:05:43.000Z" itemprop="datePublished">2016-04-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/21/javascript-lazyloadimg/">js图片懒加载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>图片懒加载也称为图片延时加载，主要表现为，当页面被请求时，只加载可视区的图片，其他部分的图片则不加载，以一张默认图片代替。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/21/javascript-lazyloadimg/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-swiper" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/07/swiper/" class="article-date">
-  	<time datetime="2016-04-07T15:15:29.000Z" itemprop="datePublished">2016-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/swiper/">swiper</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Swiper是一个触摸滑动插件，使用纯javascript打造，常用于移动端。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swiper/">swiper</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/07/swiper/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-css-display" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/30/css-display/" class="article-date">
-  	<time datetime="2016-03-30T15:24:49.000Z" itemprop="datePublished">2016-03-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/css-display/">探索display的神奇用法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>display是css中最常见的一个控制布局属性，每个元素都有一个默认值，常见的默认值为<code>block</code>和<code>inline</code>。block表示块级元素，inline表示行内元素。<br>在移动端的开发中，display尤为重要，选择最适合的display值，可以简化很多代码。下面就来探索一下display中那些神奇的用法。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/display/">display</a></li></ul>
-	</div>
-
-      <!--
--->
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/30/css-display/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -794,9 +240,134 @@
 
 
   
+    <article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/markdown/" class="article-date">
+  	<time datetime="2016-03-15T20:57:23.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/markdown/">markdown常用语法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文记录了markdown常用语法,对于初学者而言足够了。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+	</div>
+
+      <!--
+-->
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/markdown/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/hello-hexo/" class="article-date">
+  	<time datetime="2016-03-13T15:53:55.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/hello-hexo/">hello hexo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>还记得大学里第一门课是c语言，写的第一个程序是hello word。而现在搭好博客，写的第一篇文章竟然也是hello word。就当这是一个开始吧。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      <!--
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/essays/">essays</a>
+	</div>
+
+-->
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/13/hello-hexo/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
 </div>
