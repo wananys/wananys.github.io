@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ihzen.com/2016/05/31/javascript-proto/</loc>
+    
+    <lastmod>2016-08-25T09:33:48.169Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.ihzen.com/2016/04/07/swiper/</loc>
     
     <lastmod>2016-08-22T09:09:16.569Z</lastmod>
@@ -68,160 +75,6 @@
     <loc>http://www.ihzen.com/2016/07/16/css-switch/</loc>
     
     <lastmod>2016-08-22T09:06:52.236Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/swiper.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.827Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/markdown.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.825Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-this2.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.823Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-tab.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.822Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-swiper.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.821Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-scope.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.820Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-proto_.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.818Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-proto.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.817Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-lazyloadimg.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.815Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-delegate.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-closure.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.811Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-client.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.809Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/javascript-callandapplty.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.807Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/hello-hexo.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.805Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/git.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.803Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/css-switch.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/css-display.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/css-checkbox.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.797Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/css-center.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.795Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/css-border.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.792Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/cmd-gotop.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.789Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/%E5%A4%8D%E5%88%B6%20_posts/browser-input.html</loc>
-    
-    <lastmod>2016-08-22T02:44:08.787Z</lastmod>
     
   </url>
   
