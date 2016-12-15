@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ihzen.com/about/index.html</loc>
+    
+    <lastmod>2016-12-15T03:20:55.489Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.ihzen.com/2016/08/17/browser-input/</loc>
     
     <lastmod>2016-12-14T09:40:05.165Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://www.ihzen.com/2016/07/16/css-switch/</loc>
     
     <lastmod>2016-08-22T09:06:52.236Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/about/index.html</loc>
-    
-    <lastmod>2016-08-12T09:32:13.011Z</lastmod>
     
   </url>
   
