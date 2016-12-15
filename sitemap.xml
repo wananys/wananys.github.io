@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ihzen.com/2016/08/17/browser-input/</loc>
+    
+    <lastmod>2016-12-14T09:40:05.165Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.ihzen.com/2016/05/31/javascript-proto/</loc>
     
-    <lastmod>2016-08-25T09:33:48.169Z</lastmod>
+    <lastmod>2016-08-25T09:45:49.696Z</lastmod>
     
   </url>
   
@@ -54,13 +61,6 @@
     <loc>http://www.ihzen.com/2016/08/11/cmd-gotop/</loc>
     
     <lastmod>2016-08-22T09:08:37.716Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ihzen.com/2016/08/17/browser-input/</loc>
-    
-    <lastmod>2016-08-22T09:08:31.087Z</lastmod>
     
   </url>
   
