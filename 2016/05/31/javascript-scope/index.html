@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>js的作用域详解 | 黄自珍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JS中的作用域，大家都知道的，分为全局作用域和局部作用域，没有块级作用域，听起来其实很简单的，可是作用域是否能够有深入的了解，对于JS代码逻辑的编写成功率，BUG的解决能力，以及是否能写出更优秀的代码，都有很重要的影响的，如果想要写出更优雅更高效的逻辑代码，那么就要深入的了解一下作用域的问题了，确切的说，是要更深入的了解一下，怎么更有效更巧妙的利用作用域。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js的作用域详解">
+<meta property="og:url" content="http://www.ihzen.com/2016/05/31/javascript-scope/index.html">
+<meta property="og:site_name" content="黄自珍">
+<meta property="og:description" content="JS中的作用域，大家都知道的，分为全局作用域和局部作用域，没有块级作用域，听起来其实很简单的，可是作用域是否能够有深入的了解，对于JS代码逻辑的编写成功率，BUG的解决能力，以及是否能写出更优秀的代码，都有很重要的影响的，如果想要写出更优雅更高效的逻辑代码，那么就要深入的了解一下作用域的问题了，确切的说，是要更深入的了解一下，怎么更有效更巧妙的利用作用域。">
+<meta property="og:updated_time" content="2016-12-21T07:16:26.579Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js的作用域详解">
+<meta name="twitter:description" content="JS中的作用域，大家都知道的，分为全局作用域和局部作用域，没有块级作用域，听起来其实很简单的，可是作用域是否能够有深入的了解，对于JS代码逻辑的编写成功率，BUG的解决能力，以及是否能写出更优秀的代码，都有很重要的影响的，如果想要写出更优雅更高效的逻辑代码，那么就要深入的了解一下作用域的问题了，确切的说，是要更深入的了解一下，怎么更有效更巧妙的利用作用域。">
+  
+    <link rel="alternative" href="/atom.xml" title="黄自珍" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">黄自珍</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">文章分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/border/" style="font-size: 10px;">border</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/this/" style="font-size: 13.33px;">this</a> <a href="/tags/兼容性/" style="font-size: 13.33px;">兼容性</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">黄自珍</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">黄自珍</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">文章分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javascript-scope" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/javascript-scope/" class="article-date">
+  	<time datetime="2016-05-31T00:10:34.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js的作用域详解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>JS中的作用域，大家都知道的，分为全局作用域和局部作用域，没有块级作用域，听起来其实很简单的，可是作用域是否能够有深入的了解，对于JS代码逻辑的编写成功率，BUG的解决能力，以及是否能写出更优秀的代码，都有很重要的影响的，如果想要写出更优雅更高效的逻辑代码，那么就要深入的了解一下作用域的问题了，确切的说，是要更深入的了解一下，怎么更有效更巧妙的利用作用域。</p>
+</blockquote>
+<a id="more"></a>
+<p>问题的提出</p>
+<p>首先看一个例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'laruence'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">echo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     alert(name);</div><div class="line">     <span class="keyword">var</span> name = <span class="string">'eve'</span>;</div><div class="line">     alert(name);</div><div class="line">     alert(age);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">echo();</div></pre></td></tr></table></figure>
+<p>运行结果是什么呢?</p>
+<p>上面的问题, 我相信会有很多人会认为是:</p>
+<blockquote>
+<p><code>laruence</code><br><code>eve</code><br>[脚本出错]</p>
+<p>因为会以为在<code>echo</code>中, 第一次<code>alert</code>的时候, 会取到全局变量<code>name</code>的值, 而第二次值被局部变量<code>name</code>覆盖, 所以第二次<code>alert</code>是<code>eve</code>. 而<code>age</code>属性没有定义, 所以脚本会出错.</p>
+</blockquote>
+<p>但其实, 运行结果应该是:</p>
+<blockquote>
+<p><code>undefined</code><br><code>eve</code><br>[脚本出错]</p>
+</blockquote>
+<p>为什么呢?</p>
+<p><strong>JavaScript的作用域链</strong></p>
+<blockquote>
+<p>首先让让我们来看看Javasript(简称JS, 不完全代表JScript)的作用域的原理: JS权威指南中有一句很精辟的描述:　“<code>JavaScript</code>中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里.”</p>
+<p>为了接下来的知识, 你能顺利理解, 我再提醒一下, 在JS中:<strong>一切皆是对象, 函数也是</strong>.<br>在JS中，作用域的概念和其他语言差不多， 在每次调用一个函数的时候 ，就会进入一个函数内的作用域，当从函数返回以后，就返回调用前的作用域.</p>
+<p>JS的语法风格和C/C++类似, 但作用域的实现却和C/C++不同，并非用“堆栈”方式，而是使用列表，具体过程如下(ECMA262中所述):<br>-任何执行上下文时刻的作用域, 都是由作用域链(scope chain, 后面介绍)来实现.<br>-在一个函数被定义的时候, 会将它定义时刻的scope chain链接到这个函数对象的[[scope]]属性.<br>-在一个函数对象被调用的时候，会创建一个活动对象(也就是一个对象), 然后对于每一个函数的形参，都命名为该活动对象的命名属性, 然后将这个活动对象做为此时的作用域链(scope chain)最前端, 并将这个函数对象的[[scope]]加入到scope chain中.</p>
+</blockquote>
+<p>看个例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params">lps, rps</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> name = <span class="string">'laruence'</span>;</div><div class="line">     ........</div><div class="line">&#125;</div><div class="line">func();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在执行<code>func</code>的定义语句的时候, 会创建一个这个函数对象的[[scope]]属性(内部属性,只有JS引擎可以访问, 但FireFox的几个引擎(SpiderMonkey和Rhino)提供了私有属性<code>__parent__</code>来访问它), 并将这个[[scope]]属性, 链接到定义它的作用域链上(后面会详细介绍), 此时因为func定义在全局环境, 所以此时的[[scope]]只是指向全局活动对象window active object.</p>
+<p>在调用<code>func</code>的时候, 会创建一个活动对象(假设为<code>aObj</code>, 由JS引擎预编译时刻创建, 后面会介绍)，并创建<code>arguments</code>属性, 然后会给这个对象添加俩个命名属性<code>aObj.lps</code>, <code>aObj.rps</code>; 对于每一个在这个函数中申明的局部变量和函数定义, 都作为该活动对象的同名命名属性.<br>然后将调用参数赋值给形参数，对于缺少的调用参数，赋值为<code>undefined</code>。<br>然后将这个活动对象做为scope chain的最前端, 并将<code>func</code>的[[scope]]属性所指向的,定义<code>func</code>时候的顶级活动对象, 加入到scope chain.</p>
+<p>有了上面的作用域链, 在发生标识符解析的时候, 就会逆向查询当前scope chain列表的每一个活动对象的属性，如果找到同名的就返回。找不到，那就是这个标识符没有被定义。<br>注意到, 因为函数对象的[[scope]]属性是在定义一个函数的时候决定的, 而非调用的时候, 所以如下面的例子:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'laruence'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">echo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     alert(name);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">env</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> name = <span class="string">'eve'</span>;</div><div class="line">     echo();</div><div class="line">&#125;</div><div class="line"> </div><div class="line">env();</div></pre></td></tr></table></figure>
+<p>运行结果是:</p>
+<blockquote>
+<p><code>laruence</code></p>
+</blockquote>
+<p>结合上面的知识, 我们来看看下面这个例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> name = <span class="string">'laruence'</span>;</div><div class="line">     <span class="keyword">var</span> intro = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">          alert(<span class="string">'I am '</span> + name);</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> intro;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">app</span>(<span class="params">para</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> name = para;</div><div class="line">     <span class="keyword">var</span> func = factory();</div><div class="line">     func();</div><div class="line">&#125;</div><div class="line"> </div><div class="line">app(<span class="string">'eve'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当调用<code>app</code>的时候, scope chain是由: {window活动对象(全局)}-&gt;{app的活动对象} 组成.<br>在刚进入<code>app</code>函数体时, <code>app</code>的活动对象有一个<code>arguments</code>属性, 俩个值为<code>undefined</code>的属性: <code>name</code>和<code>func</code>. 和一个值为<code>eve</code>的属性<code>para</code>;</p>
+</blockquote>
+<p>此时的scope chain如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">`[[scope chain]]`</span> = [</div><div class="line">&#123;</div><div class="line">     para : <span class="string">'eve'</span>,</div><div class="line">     name : <span class="literal">undefined</span>,</div><div class="line">     func : <span class="literal">undefined</span>,</div><div class="line">     <span class="built_in">arguments</span> : []</div><div class="line">&#125;, &#123;</div><div class="line">     <span class="built_in">window</span> call object</div><div class="line">&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>当调用进入factory的函数体的时候, 此时的factory的scope chain为:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[[scope chain]] = [</div><div class="line">&#123;</div><div class="line">     name : <span class="literal">undefined</span>,</div><div class="line">     intor : <span class="literal">undefined</span></div><div class="line">&#125;, &#123;</div><div class="line">     <span class="built_in">window</span> call object</div><div class="line">&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>注意到, 此时的作用域链中, 并不包含app的活动对象.</p>
+<p>在定义intro函数的时候, intro函数的[[scope]]为:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[[scope chain]] = [</div><div class="line">&#123;</div><div class="line">     name : <span class="string">'laruence'</span>,</div><div class="line">     intor : <span class="literal">undefined</span></div><div class="line">&#125;, &#123;</div><div class="line">     <span class="built_in">window</span> call object</div><div class="line">&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>从factory函数返回以后,在app体内调用intor的时候, 发生了标识符解析, 而此时的sope chain是:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[[scope chain]] = [</div><div class="line">&#123;</div><div class="line">     intro call object</div><div class="line">&#125;, &#123;</div><div class="line">     name : <span class="string">'laruence'</span>,</div><div class="line">     intor : <span class="literal">undefined</span></div><div class="line">&#125;, &#123;</div><div class="line">     <span class="built_in">window</span> call object</div><div class="line">&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>因为scope chain中,并不包含factory活动对象. 所以, name标识符解析的结果应该是factory活动对象中的name属性, 也就是<code>laruence</code>.</p>
+<p>所以运行结果是:</p>
+<blockquote>
+<p><code>I am laruence</code></p>
+</blockquote>
+<p>现在, 大家对<strong>JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里.</strong>这句话, 应该有了个全面的认识了吧?</p>
+<p><strong>Javascript的预编译</strong></p>
+<p>我们都知道,JS是一种脚本语言, JS的执行过程, 是一种翻译执行的过程.<br>那么JS的执行中, 有没有类似编译的过程呢?</p>
+<p>首先, 我们来看一个例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert(<span class="keyword">typeof</span> eve); <span class="comment">//function</span></div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">eve</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          alert(<span class="string">'I am Laruence'</span>);</div><div class="line">     &#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>诶? 在alert的时候, eve不是应该还是未定义的么? 怎么eve的类型还是function呢?</p>
+<p>恩, 对, 在JS中, 是有预编译的过程的, JS在执行每一段JS代码之前, 都会首先处理var关键字和function定义式(函数定义式和函数表达式).<br>如上文所说, 在调用函数执行之前, 会首先创建一个活动对象, 然后搜寻这个函数中的局部变量定义,和函数定义, 将变量名和函数名都做为这个活动对象的同名属性, 对于局部变量定义,变量的值会在真正执行的时候才计算, 此时只是简单的赋为undefined.</p>
+</blockquote>
+<p>而对于函数的定义,是一个要注意的地方:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">`&lt;script&gt;`</span></div><div class="line">     alert(<span class="keyword">typeof</span> eve); <span class="comment">//结果:function</span></div><div class="line">     alert(<span class="keyword">typeof</span> walle); <span class="comment">//结果:undefined</span></div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">eve</span>(<span class="params"></span>) </span>&#123; <span class="comment">//函数定义式</span></div><div class="line">          alert(<span class="string">'I am Laruence'</span>);</div><div class="line">     &#125;;</div><div class="line">     <span class="keyword">var</span> walle = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//函数表达式</span></div><div class="line">     &#125;</div><div class="line">     alert(<span class="keyword">typeof</span> walle); <span class="comment">//结果:function</span></div><div class="line"><span class="string">`&lt;/script&gt;`</span></div></pre></td></tr></table></figure>
+<p>这就是函数定义式和函数表达式的不同, 对于函数定义式, 会将函数定义提前. 而函数表达式, 会在执行过程中才计算.</p>
+<p>说到这里, 顺便说一个问题 :</p>
+<blockquote>
+<p>var name = ‘laruence’;<br>age = 26;</p>
+<p>我们都知道不使用var关键字定义的变量, 相当于是全局变量, 联系到我们刚才的知识:</p>
+<p>在对age做标识符解析的时候, 因为是写操作, 所以当找到到全局的window活动对象的时候都没有找到这个标识符的时候, 会在window活动对象的基础上, 返回一个值为undefined的age属性.</p>
+<p>也就是说, age会被定义在顶级作用域中.</p>
+</blockquote>
+<p>现在, 也许你注意到了我刚才说的: JS在执行每一段JS代码..<br>对, 让我们看看下面的例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">`&lt;script&gt;`</span></div><div class="line">     alert(<span class="keyword">typeof</span> eve); <span class="comment">//结果:undefined</span></div><div class="line"><span class="string">`&lt;/script&gt;`</span></div><div class="line"><span class="string">`&lt;script&gt;`</span></div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">eve</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          alert(<span class="string">'I am Laruence'</span>);</div><div class="line">     &#125;</div><div class="line"><span class="string">`&lt;/script&gt;`</span></div></pre></td></tr></table></figure>
+<p>明白了么? 也就是JS的预编译是以段为处理单元的…</p>
+<p><strong>揭开谜底</strong></p>
+<blockquote>
+<p>现在让我们回到我们的第一个问题:</p>
+<p>当echo函数被调用的时候, echo的活动对象已经被预编译过程创建, 此时echo的活动对象为:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">`[callObj]`</span> = &#123;</div><div class="line">name : <span class="literal">undefined</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当第一次alert的时候, 发生了标识符解析, 在echo的活动对象中找到了name属性, 所以这个name属性, 完全的遮挡了全局活动对象中的name属性.</p>
+</blockquote>
+<p>现在你明白了吧?</p>
+<blockquote>
+<p>文章来源：</p>
+<p><a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="external">Javascript作用域原理</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/10/css-border/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          border:0与border:none的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/31/javascript-proto/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript原型和原型链详解</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript-scope" data-title="js的作用域详解" data-url="http://www.ihzen.com/2016/05/31/javascript-scope/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 黄自珍
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

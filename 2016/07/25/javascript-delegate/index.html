@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>事件委托 | 黄自珍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们都知道jquery的on是采用的事件委托，但是真正了解什么是事件委托仍然要花一定功夫，于是我们这里来试试。闭包是事件委托实现的基石，我们就以事件委托深入学习下闭包。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件委托">
+<meta property="og:url" content="http://www.ihzen.com/2016/07/25/javascript-delegate/index.html">
+<meta property="og:site_name" content="黄自珍">
+<meta property="og:description" content="我们都知道jquery的on是采用的事件委托，但是真正了解什么是事件委托仍然要花一定功夫，于是我们这里来试试。闭包是事件委托实现的基石，我们就以事件委托深入学习下闭包。">
+<meta property="og:updated_time" content="2016-12-21T07:16:54.372Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事件委托">
+<meta name="twitter:description" content="我们都知道jquery的on是采用的事件委托，但是真正了解什么是事件委托仍然要花一定功夫，于是我们这里来试试。闭包是事件委托实现的基石，我们就以事件委托深入学习下闭包。">
+  
+    <link rel="alternative" href="/atom.xml" title="黄自珍" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">黄自珍</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">文章分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/border/" style="font-size: 10px;">border</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/this/" style="font-size: 13.33px;">this</a> <a href="/tags/兼容性/" style="font-size: 13.33px;">兼容性</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">黄自珍</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">黄自珍</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">文章分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javascript-delegate" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/javascript-delegate/" class="article-date">
+  	<time datetime="2016-07-24T22:35:02.000Z" itemprop="datePublished">2016-07-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      事件委托
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们都知道jquery的on是采用的事件委托，但是真正了解什么是事件委托仍然要花一定功夫，于是我们这里来试试。<br>闭包是事件委托实现的基石，我们就以事件委托深入学习下闭包。</p>
+<a id="more"></a>
+<p>html结构：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"input"</span> <span class="attr">value</span>=<span class="string">"input"</span> <span class="attr">type</span>=<span class="string">"button"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span>我是div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"span"</span>&gt;</span>我是span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"inner"</span> <span class="attr">value</span>=<span class="string">"我是inner"</span> <span class="attr">type</span>=<span class="string">"button"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>事件委托原理</strong></p>
+<p>首先事件委托实现的基石是事件冒泡，我们在页面的每次点击最终都会冒泡到其父元素，所以我们在document处可以捕捉到所有的事件。<br>知道了这个问题后，我们可以自己实现一个简单的delegate事件绑定方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">delegate</span>(<span class="params">selector, type, fn</span>)</span>&#123;</div><div class="line">    <span class="built_in">document</span>.addEventListener(type,fn,<span class="literal">false</span>);</div><div class="line">&#125;</div><div class="line">delegate(<span class="string">'#input'</span>,<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'ttt'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这段代码是最简单的实现，首先我们无论点击页面什么地方都会执行click事件，当然这显然不是我们要看到的情况，于是我们做处理，让每次点击时候触发应有的事件。<br>这里有几个问题比较尖锐：<br>1.既然我们事件是绑定到document上面，那么我怎么知道我现在是点击的什么元素呢。<br>2.就算我能根据e.target获取当前点击元素，但是我怎么知道是哪个元素具有事件呢<br>3.就算我能根据selector确定当前点击的哪个元素需要执行事件，但是我怎么找得到是哪个事件呢</p>
+<p>如果以上问题能解决的话，我们后面的流程就比较简单了。<br><strong>确定点击元素是否触发事件</strong><br>首先，我们点击时候可以使用e.target获取当前点击元素，然后根据selector依次寻找其父DOM,如果找得到就应该触发事件，因为这些都是要在触发时候才能决定，所以我们需要重写其fn回调函数，于是简单操作后：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line"><span class="keyword">var</span> slice = arr.slice;</div><div class="line"><span class="keyword">var</span> extend = <span class="function"><span class="keyword">function</span>(<span class="params">src,obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> src)&#123;</div><div class="line">        o[k] = src[k];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</div><div class="line">        o[k] = obj[k];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> o;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">delegate</span>(<span class="params">selector, type, fn</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> callback = fn;</div><div class="line">    <span class="keyword">var</span> handler = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">        <span class="comment">//选择器找到的元素</span></div><div class="line">        <span class="keyword">var</span> selectorEl = <span class="built_in">document</span>.querySelector(selector);</div><div class="line">        <span class="comment">//当前点击元素</span></div><div class="line">	    <span class="keyword">var</span> el = e.target;</div><div class="line">        <span class="comment">//确定选择器找到的元素是否包含当前点击元素，如果包含就触发事件</span></div><div class="line">        <span class="comment">//此处只是简单实现，实际应用会有许多判断</span></div><div class="line">        <span class="keyword">if</span>(selectorEl.contains(el))&#123;</div><div class="line">            <span class="keyword">var</span> evt = extend(e,&#123;currentTarget:selectorEl&#125;);</div><div class="line">            evt = [evt].concat(slice.call(<span class="built_in">arguments</span>, el));</div><div class="line">            callback.apply(selectorEl,evt);</div><div class="line">            <span class="keyword">var</span> s = <span class="string">''</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> s = <span class="string">''</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">document</span>.addEventListener(type,handler,<span class="literal">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>调用函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">delegate(<span class="string">'#input'</span>,<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'input'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>我们这里来简单解析下整个程序<br>1.我们调用delegate为body增加事件<br>2.在具体绑定时候，我们将其中的回调给重写了<br>3.在具体点击时候（绑定几次事件实际就会触发几次click），会获取当前元素，查看其选择器搜索的元素是否包含他，如果包含的话便触发事件<br>4.由于这里每次注册时候都会形成一个闭包，传入的callback被维护起来了，所以每次调用便能找到自己的回调函数<br>5.最后重写event句柄的currentTarget，于是一次事件委托就结束了</p>
+<blockquote>
+<p>ps：这里实现还有问题，比如在even处理上，可去查看在zepto的实现方法</p>
+</blockquote>
+<p><strong>事件委托问题</strong><br>事件委托可以提高效率但是有一个比较烦的事情就是阻止冒泡没用<br>拿上面的代码来说，有一个inner元素和一个wrapper元素，它们是互相包裹关系<br>但是其执行顺序并不是先内再外的事件冒泡顺序，因为事件全部绑定到了document上面，所以这里执行顺序便是以其注册顺序所决定<br>这里有一个问题便是如何“阻止冒泡”<br>在inner处完了执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">e.stopImmediatePropagation()</div></pre></td></tr></table></figure><br>是可以达到目的的，但是仍然要求inner元素必须注册到之前</p>
+<hr>
+<p>参考：<br><a href="http://www.cnblogs.com/yexiaochai/p/3561797.html" target="_blank" rel="external">工作中的”闭包“与事件委托的”阻止冒泡“</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/06/javascript-this1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          this、call和apply的用法(一)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/16/css-checkbox/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《css揭秘》笔记：自定义复选框</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript-delegate" data-title="事件委托" data-url="http://www.ihzen.com/2016/07/25/javascript-delegate/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 黄自珍
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

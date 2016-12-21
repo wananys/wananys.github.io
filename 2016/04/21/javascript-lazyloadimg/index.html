@@ -4,24 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>git简易入门 | 黄自珍</title>
+  <title>js图片懒加载 | 黄自珍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.创建新仓库
-
-创建新文件夹，打开，然后执行git init来创建新的git仓库">
+  <meta name="description" content="图片懒加载也称为图片延时加载，主要表现为，当页面被请求时，只加载可视区的图片，其他部分的图片则不加载，以一张默认图片代替。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git简易入门">
-<meta property="og:url" content="http://www.ihzen.com/2016/03/22/git/index.html">
+<meta property="og:title" content="js图片懒加载">
+<meta property="og:url" content="http://www.ihzen.com/2016/04/21/javascript-lazyloadimg/index.html">
 <meta property="og:site_name" content="黄自珍">
-<meta property="og:description" content="1.创建新仓库
-
-创建新文件夹，打开，然后执行git init来创建新的git仓库">
-<meta property="og:updated_time" content="2016-07-15T18:25:34.000Z">
+<meta property="og:description" content="图片懒加载也称为图片延时加载，主要表现为，当页面被请求时，只加载可视区的图片，其他部分的图片则不加载，以一张默认图片代替。">
+<meta property="og:updated_time" content="2016-12-21T07:16:54.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git简易入门">
-<meta name="twitter:description" content="1.创建新仓库
-
-创建新文件夹，打开，然后执行git init来创建新的git仓库">
+<meta name="twitter:title" content="js图片懒加载">
+<meta name="twitter:description" content="图片懒加载也称为图片延时加载，主要表现为，当页面被请求时，只加载可视区的图片，其他部分的图片则不加载，以一张默认图片代替。">
   
     <link rel="alternative" href="/atom.xml" title="黄自珍" type="application/atom+xml">
   
@@ -182,11 +176,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-javascript-lazyloadimg" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/22/git/" class="article-date">
-  	<time datetime="2016-03-22T00:48:18.000Z" itemprop="datePublished">2016-03-22</time>
+      <a href="/2016/04/21/javascript-lazyloadimg/" class="article-date">
+  	<time datetime="2016-04-20T23:05:43.000Z" itemprop="datePublished">2016-04-20</time>
 </a>
     </div>
   
@@ -199,7 +193,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git简易入门
+      js图片懒加载
     </h1>
   
 
@@ -208,7 +202,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 	</div>
 
         <!--
@@ -219,52 +213,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.创建新仓库</p>
-<blockquote>
-<p>创建新文件夹，打开，然后执行<code>git init</code>来创建新的git仓库</p>
-</blockquote>
+        <p>图片懒加载也称为图片延时加载，主要表现为，当页面被请求时，只加载可视区的图片，其他部分的图片则不加载，以一张默认图片代替。</p>
 <a id="more"></a>
-<p>2.检出仓库</p>
 <blockquote>
-<p>创建一个本地仓库的克隆版本：<code>git clone /path/to/respository</code><br>获取远端服务器的仓库：<code>git clone username@host:/path/to/repository</code></p>
+<p>1.一般情况下，我们会给图片的src设置为默认的logo图，而把真实图片地址存放在一个自定义属性data-src里,并加上class标识。<br>2.图片的动态加载就是通过class获取img元素的data-src属性的值替换成图片的src。<br>3.设置一个定时器，判断滚动是否已停止。</p>
 </blockquote>
-<p>3.工作流</p>
+<p>html代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span> = <span class="string">"images/logo.png"</span> <span class="attr">class</span>=<span class="string">"lazy_img"</span> <span class="attr">data-src</span> = <span class="string">"http://imageserver/xxx.jpg"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>js代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义滚动状态变量，用于标识是否有过滚动</span></div><div class="line"><span class="keyword">var</span> is_scroll = <span class="literal">true</span>;</div><div class="line"><span class="comment">//定义滚动高度的纪录值，定时器会定时对比该值与当前scrollTop值，来判断滚动是否已停止</span></div><div class="line"><span class="keyword">var</span> gb_k =<span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> gb_scrollTop =<span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> gb_scrollBottom =<span class="number">0</span>;</div><div class="line">		</div><div class="line"><span class="comment">//替换图片真实地址方法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildImg</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    $(<span class="string">'img.lazy_img'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> $img=$(<span class="keyword">this</span>);</div><div class="line">        <span class="keyword">var</span> tmpTop=$img.offset().top;</div><div class="line">        <span class="keyword">if</span>(tmpTop+<span class="number">300</span>&gt;gb_scrollTop &amp;&amp; tmpTop&lt;gb_scrollBottom)&#123;</div><div class="line">            <span class="keyword">if</span>($img.attr(<span class="string">'data-src'</span>))</div><div class="line">                $img.attr(<span class="string">'src'</span>,$img.attr(<span class="string">'data-src'</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">		</div><div class="line"><span class="comment">//每当有滚动发生，把滚动状态打开</span></div><div class="line">$(<span class="built_in">document</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    is_scroll=<span class="literal">true</span>;</div><div class="line">&#125;);</div><div class="line">		</div><div class="line"><span class="comment">//定时器</span></div><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">if</span>(is_scroll)&#123;</div><div class="line">        <span class="comment">//滚动状态开启时做比对</span></div><div class="line">        gb_scrollTop=<span class="built_in">document</span>.body.scrollTop==<span class="number">0</span>?<span class="built_in">document</span>.documentElement.scrollTop:<span class="built_in">document</span>.body.scrollTop;</div><div class="line">        gb_scrollBottom=gb_scrollTop+<span class="built_in">document</span>.documentElement.clientHeight;</div><div class="line">        <span class="keyword">if</span>(gb_k==gb_scrollTop)&#123;</div><div class="line">            <span class="comment">//滚动0.4秒无变化，被认为已停止，开始加载当前可视范围内的图片</span></div><div class="line">            buildImg();</div><div class="line">            <span class="comment">//滚动状态关闭</span></div><div class="line">            eScroll=<span class="literal">false</span>;</div><div class="line">        &#125;<span class="keyword">else</span></div><div class="line">            gb_k=gb_scrollTop;</div><div class="line">    &#125;</div><div class="line">&#125;,<span class="number">400</span>);</div></pre></td></tr></table></figure>
+<p>效果演示：<a href="http://ihzen.com/demos/js_lazyloadimg" target="_blank" rel="external">点击demo</a></p>
 <blockquote>
-<p>你的本地仓库由git维护的三棵“树”组成。<br>第一个是你的工作目录，它持有实际文件。<br>第二个是暂存区（index），它像个缓存区域，临时保存你的改动。<br>最后是head，它指向你最后一次提交的结果。</p>
+<p>参考资料：<br><a href="https://segmentfault.com/a/1190000003881643" target="_blank" rel="external">懒加载——网页图片的加载技术</a><br><a href="http://blog.gxxsite.com/da-liang-tu-pian-de-lie-biao-tu-pian-yan-chi-jia-zai-de-shi-xian-jian-ting-ye-mian-gun-dong-jian-shao-ke-hu-duan-he-wang-luo-de-ya-li/" target="_blank" rel="external">大量图片的列表，图片延迟加载的实现，监听页面滚动，减少客户端和网络的压力</a></p>
 </blockquote>
-<p>4.添加和提交</p>
-<blockquote>
-<p>第一步：添加到暂存区，使用命令：<code>git add &lt;filename&gt;</code>或是 <code>git add *</code><br>第二步：实际提交改动：<code>git commit -m &quot;代码提交信息&quot;</code><br>现在已经提交到了head,但是还没到你的远端仓库。</p>
-</blockquote>
-<p>5.推送改动</p>
-<blockquote>
-<p>提交到远端仓库：<code>git push origin/master</code>可以把master换成想要推送的任何分支。<br>如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：<br><code>git remote add origin &lt;server&gt;</code></p>
-</blockquote>
-<p>6.分支</p>
-<blockquote>
-<p>分支是用来将特性开发绝缘开来的，创建仓库时，master是默认分支，在其他分支上进行开发，完成后再将它们合并到主分支上。<br>创建一个叫做“feature_x”的分支，并切换过去：<br><code>git checkout -b feature_x</code><br>切换回主分支：<br><code>git checkout master</code><br>再把新建的分支删掉：<br><code>git branch -d feature_x</code><br>除非将分支推送到远端仓库，否则该分支不可见。<br>推送到远端仓库：<br><code>git push origin &lt;branch&gt;</code></p>
-</blockquote>
-<p>7.更新与合并</p>
-<blockquote>
-<p>更新本地仓库至最新版本：<code>git pull</code><br>合并其他分支到你的当前分支，执行：<code>git mergr &lt;branch&gt;</code><br>如果出现冲突，这时候需要修改这些文件来手动合并这些冲突，改完之后，需要执行以下命令以将它们标记为合并成功：<br><code>git add &lt;filename&gt;</code><br>合并前，查看差异<br><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code></p>
-</blockquote>
-<p>8.标签</p>
-<blockquote>
-<p>创建一个叫做1.0.0的标签：<br><code>git tag 1.0.0 1b2e1d63ff</code><br>1b2e1d63ff是你想要标记的提交id的前10位字符，使用以下命令获取提交id：<br><code>git log</code></p>
-</blockquote>
-<p>9.替换本地改动</p>
-<blockquote>
-<p>假如操作失误，可以使用下列命令替换掉本地改动：<br><code>git checkout -- &lt;filename&gt;</code><br>这会使用head中的最新内容替换掉你的工作目录中的文件，已添加到暂存区的改动以及新文件都不会受到影响。<br>假如想丢弃本地的所有改动与提交，可以到服务器上获取最新版本历史，并将本地主分支指向它。<br><code>git fetch origin</code><br><code>git reset --hard orgin/master</code></p>
-</blockquote>
-<p>10.实用小贴士</p>
-<blockquote>
-<p>内建的图形化git：<code>gitk</code><br>彩色的git输出：<code>git config color.ui true</code><br>显示历史纪录时，每个提交的信息只显示一行：<br><code>git config format.pretty oneline</code><br>交互式添加文件到暂存区： <code>git add -i</code></p>
-</blockquote>
-<p>11.通过github预览网页</p>
-<blockquote>
-<p>1.终端切换到工作目录<br>2.创建一个新的gh-pages分支<br><code>git checkout --orphan gh-pages</code><br>新建一个gh-pages分支并且没有任何提交历史，不要–orphan也行<br>3.删除里面的内容（可选，如果是要提交的内容就不用删）<br><code>rm -rf *</code><br>可通过<a href="http://(user_name).github.io/项目名" target="_blank" rel="external">http://(user_name).github.io/项目名</a> 来访问了。<br>4.git add和git commit之后就可以正常push了<br><code>git push -u orgin gh-pages</code><br>或者<br><code>git push -u origin HEAD</code></p>
-</blockquote>
-<p>参考文章：<br><a href="http://www.runoob.com/manual/git-guide/" target="_blank" rel="external">git-简明指南</a><br><a href="http://ife.baidu.com/note/detail?noteId=137&amp;qq-pf-to=pcqq.group" target="_blank" rel="external">2分钟在github pages里创建你项目的Demo</a></p>
 
       
     </div>
@@ -274,18 +235,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/30/css-display/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/26/javascript-client/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          探索display的神奇用法
+          js中client-*,scroll-*,offset-*
         
       </div>
     </a>
   
   
-    <a href="/2016/03/16/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown常用语法</div>
+    <a href="/2016/04/07/swiper/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">swiper</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -301,7 +262,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="git" data-title="git简易入门" data-url="http://www.ihzen.com/2016/03/22/git/"></div>
+	<div class="ds-thread" data-thread-key="javascript-lazyloadimg" data-title="js图片懒加载" data-url="http://www.ihzen.com/2016/04/21/javascript-lazyloadimg/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
