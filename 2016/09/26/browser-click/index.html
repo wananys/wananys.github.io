@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: 原型 | 黄自珍</title>
+  <title>解决onclick事件在ios上失效 | 黄自珍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github|">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄自珍">
-<meta property="og:url" content="http://www.ihzen.com/tags/原型/index.html">
+  <meta name="description" content="在做移动端开发时，遇见好几次js的onclick事件在ios失效问题，特此记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决onclick事件在ios上失效">
+<meta property="og:url" content="http://www.ihzen.com/2016/09/26/browser-click/index.html">
 <meta property="og:site_name" content="黄自珍">
-<meta property="og:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github|">
+<meta property="og:description" content="在做移动端开发时，遇见好几次js的onclick事件在ios失效问题，特此记录。">
+<meta property="og:updated_time" content="2016-12-23T02:23:54.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄自珍">
-<meta name="twitter:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github|">
+<meta name="twitter:title" content="解决onclick事件在ios上失效">
+<meta name="twitter:description" content="在做移动端开发时，遇见好几次js的onclick事件在ios失效问题，特此记录。">
   
     <link rel="alternative" href="/atom.xml" title="黄自珍" type="application/atom+xml">
   
@@ -175,53 +176,93 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-browser-click" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/31/javascript-proto/" class="archive-article-date">
-  	<time datetime="2016-05-30T22:30:09.000Z" itemprop="datePublished">May 30</time>
+    <div class="article-meta">
+      <a href="/2016/09/26/browser-click/" class="article-date">
+  	<time datetime="2016-09-25T23:12:52.000Z" itemprop="datePublished">2016-09-25</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/31/javascript-proto/">javascript原型和原型链详解</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决onclick事件在ios上失效
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型/">原型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型链/">原型链</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li></ul>
 	</div>
 
-          <!--
+        <!--
 -->
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在做移动端开发时，遇见好几次js的onclick事件在ios失效问题，特此记录。</p>
+<a id="more"></a>
+<p>解决方法很简单，在绑定元素上加上一句css <code>cursor:pointer</code></p>
+<p>完。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/17/browser-input/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决Android下输入框聚焦时变大的问题</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="browser-click" data-title="解决onclick事件在ios上失效" data-url="http://www.ihzen.com/2016/09/26/browser-click/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -247,9 +288,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
