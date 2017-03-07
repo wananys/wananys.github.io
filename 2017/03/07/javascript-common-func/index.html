@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: firefox | 黄自珍</title>
+  <title>javascript常用函数集锦 | 黄自珍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github|">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄自珍">
-<meta property="og:url" content="http://www.ihzen.com/tags/firefox/index.html">
+  <meta name="description" content="本文列出一些javascript常用的方法…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript常用函数集锦">
+<meta property="og:url" content="http://www.ihzen.com/2017/03/07/javascript-common-func/index.html">
 <meta property="og:site_name" content="黄自珍">
-<meta property="og:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github|">
+<meta property="og:description" content="本文列出一些javascript常用的方法…">
+<meta property="og:updated_time" content="2017-03-07T06:36:46.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄自珍">
-<meta name="twitter:description" content="css|js|html|前端|ihzenHuang|ihzen|黄自珍|hexo|github|">
+<meta name="twitter:title" content="javascript常用函数集锦">
+<meta name="twitter:description" content="本文列出一些javascript常用的方法…">
   
     <link rel="alternative" href="/atom.xml" title="黄自珍" type="application/atom+xml">
   
@@ -175,53 +176,95 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-javascript-common-func" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/11/cmd-gotop/" class="archive-article-date">
-  	<time datetime="2016-08-11T15:46:09.000Z" itemprop="datePublished">Aug 11</time>
+    <div class="article-meta">
+      <a href="/2017/03/07/javascript-common-func/" class="article-date">
+  	<time datetime="2017-03-07T14:30:09.000Z" itemprop="datePublished">2017-03-07</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/11/cmd-gotop/">Firefox下关于animate的一点小坑</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript常用函数集锦
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firefox/">firefox</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 	</div>
 
-          <!--
+        <!--
 -->
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文列出一些javascript常用的方法…</p>
+<a id="more"></a>
+<p><strong>判断数据类型</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object '</span>+type+<span class="string">']'</span>;</div><div class="line">	&#125;	</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> isArray = isType(<span class="string">'Array'</span>)([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</div><div class="line"><span class="built_in">console</span>.log(isArray);  <span class="comment">//true</span></div></pre></td></tr></table></figure>
+<p>还可以用循环语句来实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Type = &#123;&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i =<span class="number">0</span>,type;type = [<span class="string">'String'</span>,<span class="string">'Array'</span>,<span class="string">'Number'</span>][ i++ ];) &#123;</div><div class="line">	(<span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</div><div class="line">		Type[ <span class="string">'is'</span> + type] = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object '</span>+type+<span class="string">']'</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;)(type)</div><div class="line">&#125;;	</div><div class="line"><span class="built_in">console</span>.log(Type.isString([])); <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/26/browser-click/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决onclick事件在ios上失效</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript-common-func" data-title="javascript常用函数集锦" data-url="http://www.ihzen.com/2017/03/07/javascript-common-func/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -247,9 +290,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
