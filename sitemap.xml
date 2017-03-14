@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ihzen.com/2017/03/13/javascript-registerform/</loc>
+    
+    <lastmod>2017-03-14T03:33:32.412Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.ihzen.com/2017/03/07/javascript-common-func/</loc>
     
     <lastmod>2017-03-10T08:44:46.072Z</lastmod>
@@ -23,14 +30,14 @@
   </url>
   
   <url>
-    <loc>http://www.ihzen.com/2016/04/21/javascript-lazyloadimg/</loc>
+    <loc>http://www.ihzen.com/2016/07/25/javascript-delegate/</loc>
     
     <lastmod>2016-12-21T07:16:54.372Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.ihzen.com/2016/07/25/javascript-delegate/</loc>
+    <loc>http://www.ihzen.com/2016/04/21/javascript-lazyloadimg/</loc>
     
     <lastmod>2016-12-21T07:16:54.372Z</lastmod>
     
