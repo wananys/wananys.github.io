@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>使用装饰者重构表单验证（插件式的表单验证） | ihzenHuang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="装饰者模式能够在不改变对象自身的基础上，在程序运行期间给对象动态地添加职责。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用装饰者重构表单验证（插件式的表单验证）">
+<meta property="og:url" content="http://wananys.github.io/2017/05/11/javascript-registerform-2/index.html">
+<meta property="og:site_name" content="ihzenHuang">
+<meta property="og:description" content="装饰者模式能够在不改变对象自身的基础上，在程序运行期间给对象动态地添加职责。">
+<meta property="og:updated_time" content="2017-05-11T08:00:37.858Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用装饰者重构表单验证（插件式的表单验证）">
+<meta name="twitter:description" content="装饰者模式能够在不改变对象自身的基础上，在程序运行期间给对象动态地添加职责。">
+  
+    <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ihzenHuang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">being towords death...</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>简介</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">文章分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/border/" style="font-size: 10px;">border</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-jQuery/" style="font-size: 10px;">javascript jQuery</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/this/" style="font-size: 12.5px;">this</a> <a href="/tags/兼容性/" style="font-size: 15px;">兼容性</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">一只爱写字的程序媛，拥有一腔孤勇和一颗挚爱生活的心，最大的心愿是和一群有趣的人做一些有趣的事...</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">ihzenHuang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ihzenHuang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">being towords death...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">文章分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wananys" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/bowanliang" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-xiao-he-94" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-javascript-registerform-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/11/javascript-registerform-2/" class="article-date">
+  	<time datetime="2017-05-11T14:50:04.000Z" itemprop="datePublished">2017-05-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用装饰者重构表单验证（插件式的表单验证）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        <!--
+-->
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>装饰者模式能够在不改变对象自身的基础上，在程序运行期间给对象动态地添加职责。</p>
+<a id="more"></a>
+<p>在一个web项目中，可能存在非常多的表单，如注册、登录、修改用户信息等。在表单数据提交给后台之前，常常要做一些校验，比如登录的时候需要验证用户名和密码是否为空，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    用户名：&lt;input id=<span class="string">"username"</span> type=<span class="string">"text"</span>/&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></div><div class="line">    密码：&lt;input id=<span class="string">"password"</span> type=<span class="string">"password"</span> /&gt; <span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></div><div class="line">    &lt;input id=<span class="string">"submitBtn"</span> type=<span class="string">"button"</span> value=<span class="string">"提交"</span>/&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">var</span> username = <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>),</div><div class="line">        password = <span class="built_in">document</span>.getElementById(<span class="string">'password'</span>),</div><div class="line">        submitBtn = <span class="built_in">document</span>.getElementById(<span class="string">'submitBtn'</span>);</div><div class="line">        </div><div class="line">    <span class="keyword">var</span> formSubmit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(username.value === <span class="string">''</span>)&#123;</div><div class="line">            <span class="keyword">return</span> alert(<span class="string">'用户名不能为空'</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(password.value === <span class="string">''</span>)&#123;</div><div class="line">            <span class="keyword">return</span> alert(<span class="string">'密码不能为空'</span>);</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        <span class="keyword">var</span> param = &#123;</div><div class="line">            username:username.value,</div><div class="line">            password:password.value</div><div class="line">        &#125;</div><div class="line">        ajax(<span class="string">'http:xxx.com'</span>,param);    <span class="comment">//ajax具体实现略</span></div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    submitBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        formSubmit();</div><div class="line">    &#125;</div><div class="line">		</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<p>formSubmit函数在此处承担了两个职责，除了提交ajax请求之外，还要验证用户输入的合法性。这种代码一般会造成<strong>函数臃肿，职责混乱</strong>，二来谈不上任何可复用性。<br>本节的目的是分离校验输入和提交ajax请求的代码，我们把校验输入的逻辑放到validata函数中，并且约定当validata函数返回false的时候，表示校验未通过，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> username = <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>),</div><div class="line">    password = <span class="built_in">document</span>.getElementById(<span class="string">'password'</span>),</div><div class="line">    submitBtn = <span class="built_in">document</span>.getElementById(<span class="string">'submitBtn'</span>);</div><div class="line"> </div><div class="line"><span class="keyword">var</span> validata = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(username.value === <span class="string">''</span>)&#123;</div><div class="line">        <span class="keyword">return</span> alert(<span class="string">'用户名不能为空'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(password.value === <span class="string">''</span>)&#123;</div><div class="line">        <span class="keyword">return</span> alert(<span class="string">'密码不能为空'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;   </div><div class="line"></div><div class="line"><span class="keyword">var</span> formSubmit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(validata() === <span class="literal">false</span>)&#123;</div><div class="line">	    <span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">    <span class="keyword">var</span> param = &#123;</div><div class="line">        username:username.value,</div><div class="line">        password:password.value</div><div class="line">    &#125;</div><div class="line">    ajax(<span class="string">'http:xxx.com'</span>,param);    <span class="comment">//ajax具体实现略</span></div><div class="line">&#125;</div><div class="line">    </div><div class="line">submitBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    formSubmit();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在的代码已经有了一些改进，我们把校验的逻辑都放到了validata函数中，但formSubmit函数的内部还要计算validata函数的返回值，因为返回值的结果表明了是否通过校验。</p>
+<p>接下来进一步优化这段代码，使validata和formSubmit完全分离开来。首先改写Function.prototype.before，如果beforefn的执行结果返回false,表示不再执行后面的原函数，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> username = <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>),</div><div class="line">    password = <span class="built_in">document</span>.getElementById(<span class="string">'password'</span>),</div><div class="line">    submitBtn = <span class="built_in">document</span>.getElementById(<span class="string">'submitBtn'</span>);</div><div class="line"></div><div class="line"><span class="built_in">Function</span>.prototype.before = <span class="function"><span class="keyword">function</span>(<span class="params">beforefn</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> _self = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(beforefn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>) === <span class="literal">false</span>)&#123;</div><div class="line">            <span class="comment">//beforefn返回false的情况下直接return，不再执行后面的原函数</span></div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> _self.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">		</div><div class="line"><span class="keyword">var</span> validata = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(username.value === <span class="string">''</span>)&#123;</div><div class="line">        <span class="keyword">return</span> alert(<span class="string">'用户名不能为空'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(password.value === <span class="string">''</span>)&#123;</div><div class="line">        <span class="keyword">return</span> alert(<span class="string">'密码不能为空'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;   </div><div class="line"></div><div class="line"><span class="keyword">var</span> formSubmit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> param = &#123;</div><div class="line">        username:username.value,</div><div class="line">        password:password.value</div><div class="line">    &#125;</div><div class="line">    ajax(<span class="string">'http:xxx.com'</span>,param);    <span class="comment">//ajax具体实现略</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line">formSubmit = formSubmit.before(validata);</div><div class="line">   </div><div class="line">submitBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    formSubmit()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这段代码中，校验输入和提交表单的代码完全分离开来，它们不再有任何耦合关系，validata成为一个即插即用的函数，它甚至可以被写成配置文件的形式，这有利于我们分开维护这两个函数，再利用策略模式稍加改造，我们就可以把这些校验规则都写成插件的形式，用在不同的项目当中。</p>
+<hr>
+<p>值得注意的是，因为函数通过Function.prototype.before或者Function.prototype.after被装饰之后，返回的实际上是一个新的函数，如果在原函数上保存了一些属性，那么这些属性会丢失。代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line">func.a = <span class="string">"a"</span>;</div><div class="line"></div><div class="line">func = func.after.after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="number">2</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">alert(func.a);   <span class="comment">//输出：undefined</span></div></pre></td></tr></table></figure>
+<p>另外，这种装饰方式也叠加了函数的作用域，如果装饰的链条过长，性能上也会受到一些影响。</p>
+<hr>
+<blockquote>
+<p>本文选自：<br>《javascript设计模式与开发实践》</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/13/javascript-registerform/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用策略模式重构表单验证</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript-registerform-2" data-title="使用装饰者重构表单验证（插件式的表单验证）" data-url="http://wananys.github.io/2017/05/11/javascript-registerform-2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ihzenHuang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 ihzenHuang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
