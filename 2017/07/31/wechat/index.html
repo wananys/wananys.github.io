@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wananys.github.io/2017/07/31/wechat/index.html">
 <meta property="og:site_name" content="ihzenHuang">
 <meta property="og:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
-<meta property="og:updated_time" content="2017-07-31T07:21:33.776Z">
+<meta property="og:updated_time" content="2017-07-31T07:24:54.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序开发总结">
 <meta name="twitter:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
@@ -219,30 +219,30 @@
 <blockquote>
 <p>使用post方法时，要设置Content-Type为<strong>application/x-www-form-urlencoded</strong></p>
 </blockquote>
-<hr>
 <p><strong>app.js</strong></p>
 <blockquote>
 <p>所有页面的js加载都是在app.js之后，也就是说子页面下的js需要获取app.js中的公共信息，要使得app.js的请求完成才能进行下一步操作。<br>若是app.js动态更改公共信息，也可能使子页面的js获取不到值。<br>另外，子页面中的js不能改变app.js中设置的公共值</p>
 </blockquote>
-<hr>
 <p><strong>未发布版本调试</strong></p>
 <blockquote>
 <p>小程序未发布之前可以用手机通过扫描开发工具的二维码进行真机调试，这个调试需要手机开启调试模式才能请求成功连接到服务器。</p>
 </blockquote>
-<hr>
 <p><strong>hidden</strong></p>
 <blockquote>
 <p>组件中hidden的使用：不能直接写在组件中，需要依靠js赋值来设置。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><view hidden></view></h2></blockquote>
+<view hidden>
+
+</view></blockquote>
 <p><strong>onShow()</strong></p>
 <blockquote>
 <p>使用onShow()方法来调用其他js，可以使得该页面进入到下一层后再点击“回退”时重新加载页面，实现刷新页面</p>
 </blockquote>
-<hr>
 <p><strong>模板引用</strong></p>
 <blockquote>
 <p>小程序中的模板引用经常失败，具体原因待查证。</p>
 </blockquote>
+<hr>
+<p>以上为本次开发遇到的问题，稍作记录。</p>
 
       
     </div>
