@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wananys.github.io/2017/07/31/wechat/index.html">
 <meta property="og:site_name" content="ihzenHuang">
 <meta property="og:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
-<meta property="og:updated_time" content="2017-07-31T07:28:47.733Z">
+<meta property="og:updated_time" content="2017-07-31T08:44:23.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序开发总结">
 <meta name="twitter:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
@@ -224,6 +224,10 @@
 <p><strong>app.js</strong></p>
 <blockquote>
 <p>所有页面的js加载都是在app.js之后，也就是说子页面下的js需要获取app.js中的公共信息，要使得app.js的请求完成才能进行下一步操作。<br>若是app.js动态更改公共信息，也可能使子页面的js获取不到值。<br>另外，子页面中的js不能改变app.js中设置的公共值</p>
+</blockquote>
+<p><strong>first-child</strong></p>
+<blockquote>
+<p>小程序中样式要使用first-child,该元素必须被包围在父元素中。</p>
 </blockquote>
 <p><strong>未发布版本调试</strong></p>
 <blockquote>
