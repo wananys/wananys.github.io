@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wananys.github.io/2017/07/31/wechat/index.html">
 <meta property="og:site_name" content="ihzenHuang">
 <meta property="og:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
-<meta property="og:updated_time" content="2017-07-31T07:24:54.129Z">
+<meta property="og:updated_time" content="2017-07-31T07:28:47.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序开发总结">
 <meta name="twitter:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
@@ -214,7 +214,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。<br>本文记录一些在小程序开发过程中需要注意的问题。<br><a id="more"></a></p>
-<p>小程序的逻辑层由 JavaScript 语言完成。但因为小程序不在浏览器中运行，所以 JS 在 web 浏览器中的一些函数不能用，如 document、window 等。<br>app.js 有全局的小程序生命周期，page.js 有自己本页面的生命周期。</p>
+<blockquote>
+<p>小程序的逻辑层由 JavaScript 语言完成。但因为小程序不在浏览器中运行，所以 JS 在 web 浏览器中的一些函数不能用，如 document、window 等。<br>小程序中所有页面动态值都由js中来设置变量。</p>
+</blockquote>
 <p><strong>wx.request</strong></p>
 <blockquote>
 <p>使用post方法时，要设置Content-Type为<strong>application/x-www-form-urlencoded</strong></p>
