@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wananys.github.io/2016/05/10/javascript-swiper/</loc>
+    
+    <lastmod>2017-07-31T08:51:40.287Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wananys.github.io/2017/07/31/wechat/</loc>
     
     <lastmod>2017-07-31T08:46:36.204Z</lastmod>
@@ -65,14 +72,14 @@
   </url>
   
   <url>
-    <loc>http://wananys.github.io/2016/04/21/javascript-lazyloadimg/</loc>
+    <loc>http://wananys.github.io/2016/07/25/javascript-delegate/</loc>
     
     <lastmod>2016-12-21T07:16:54.372Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wananys.github.io/2016/07/25/javascript-delegate/</loc>
+    <loc>http://wananys.github.io/2016/04/21/javascript-lazyloadimg/</loc>
     
     <lastmod>2016-12-21T07:16:54.372Z</lastmod>
     
@@ -89,13 +96,6 @@
     <loc>http://wananys.github.io/2016/05/31/javascript-scope/</loc>
     
     <lastmod>2016-12-21T07:16:26.579Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wananys.github.io/2016/05/10/javascript-swiper/</loc>
-    
-    <lastmod>2016-12-21T07:08:07.554Z</lastmod>
     
   </url>
   
