@@ -4,32 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>文章分类 | ihzenHuang</title>
+  <title>微信小程序开发总结 | ihzenHuang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习javascript的时候，常常被各种概念绕晕，于是脑海中闪现一个念头，要把这些学习过的东西记录下来，并且用自己所能理解的句子重新整理一遍，加深印象。这些文章大部分还是靠转载和整理，而自己在项目中遇到的一些问题也被记录下来。学习编程语言是很枯燥的，多看多写多练，勤能补拙，共同成长。
-
-javascript理解系列
-
-this、call和apply的用法(一)this、call和apply的用">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://wananys.github.io/about/复制 index.html">
+  <meta name="description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序开发总结">
+<meta property="og:url" content="http://wananys.github.io/2017/07/31/wechat/index.html">
 <meta property="og:site_name" content="ihzenHuang">
-<meta property="og:description" content="在学习javascript的时候，常常被各种概念绕晕，于是脑海中闪现一个念头，要把这些学习过的东西记录下来，并且用自己所能理解的句子重新整理一遍，加深印象。这些文章大部分还是靠转载和整理，而自己在项目中遇到的一些问题也被记录下来。学习编程语言是很枯燥的，多看多写多练，勤能补拙，共同成长。
-
-javascript理解系列
-
-this、call和apply的用法(一)this、call和apply的用">
-<meta property="og:image" content="http://wananys.github.io/images/ercode.jpg">
-<meta property="og:updated_time" content="2016-08-12T08:24:41.056Z">
+<meta property="og:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
+<meta property="og:updated_time" content="2017-07-31T07:21:33.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文章分类">
-<meta name="twitter:description" content="在学习javascript的时候，常常被各种概念绕晕，于是脑海中闪现一个念头，要把这些学习过的东西记录下来，并且用自己所能理解的句子重新整理一遍，加深印象。这些文章大部分还是靠转载和整理，而自己在项目中遇到的一些问题也被记录下来。学习编程语言是很枯燥的，多看多写多练，勤能补拙，共同成长。
-
-javascript理解系列
-
-this、call和apply的用法(一)this、call和apply的用">
-<meta name="twitter:image" content="http://wananys.github.io/images/ercode.jpg">
+<meta name="twitter:title" content="微信小程序开发总结">
+<meta name="twitter:description" content="小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。本文记录一些在小程序开发过程中需要注意的问题。">
   
     <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
   
@@ -190,11 +176,11 @@ this、call和apply的用法(一)this、call和apply的用">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-wechat" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/复制 index.html" class="article-date">
-  	<time datetime="2016-03-13T18:54:11.000Z" itemprop="datePublished">2016-03-13</time>
+      <a href="/2017/07/31/wechat/" class="article-date">
+  	<time datetime="2017-07-31T13:09:49.000Z" itemprop="datePublished">2017-07-31</time>
 </a>
     </div>
   
@@ -207,7 +193,7 @@ this、call和apply的用法(一)this、call和apply的用">
         
   
     <h1 class="article-title" itemprop="name">
-      文章分类
+      微信小程序开发总结
     </h1>
   
 
@@ -215,6 +201,10 @@ this、call和apply的用法(一)this、call和apply的用">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+	</div>
+
         <!--
 -->
         <div class="clearfix"></div>
@@ -223,51 +213,36 @@ this、call和apply的用法(一)this、call和apply的用">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在学习javascript的时候，常常被各种概念绕晕，于是脑海中闪现一个念头，要把这些学习过的东西记录下来，并且用自己所能理解的句子重新整理一遍，加深印象。<br>这些文章大部分还是靠转载和整理，而自己在项目中遇到的一些问题也被记录下来。学习编程语言是很枯燥的，多看多写多练，勤能补拙，共同成长。</p>
-<hr>
-<p><strong>javascript理解系列</strong></p>
+        <p>小程序是基于微信开发的，所以对于开发移动端的人来说似乎不那么麻烦。当然第一次开发即便是遵照文档，熟读API，一不小心还是能遇到不少坑。<br>本文记录一些在小程序开发过程中需要注意的问题。<br><a id="more"></a></p>
+<p>小程序的逻辑层由 JavaScript 语言完成。但因为小程序不在浏览器中运行，所以 JS 在 web 浏览器中的一些函数不能用，如 document、window 等。<br>app.js 有全局的小程序生命周期，page.js 有自己本页面的生命周期。</p>
+<p><strong>wx.request</strong></p>
 <blockquote>
-<p><a href="http://ihzen.com/2016/08/06/javascript-this2/" target="_blank" rel="external">this、call和apply的用法(一)</a><br><a href="http://ihzen.com/2016/08/08/javascript-callandapplty/" target="_blank" rel="external">this、call和apply的用法(二)</a><br><a href="http://ihzen.com/2016/05/31/javascript-scope/" target="_blank" rel="external">js的作用域详解</a><br><a href="http://ihzen.com/2016/04/26/javascript-closure/" target="_blank" rel="external">javascript中闭包的理解</a><br><a href="http://ihzen.com/2016/04/26/javascript-client/" target="_blank" rel="external">js中<code>client-*</code>,<code>scroll-*</code>,<code>offset-*</code></a><br><a href="http://ihzen.com/2016/05/31/javascript-proto/" target="_blank" rel="external"><code>constructor</code>, <code>prototype</code>, <code>__proto__</code> 详解</a><br><a href="http://ihzen.com/2016/07/25/javascript-delegate/" target="_blank" rel="external">事件委托</a></p>
+<p>使用post方法时，要设置Content-Type为<strong>application/x-www-form-urlencoded</strong></p>
 </blockquote>
 <hr>
-<p><strong>javascript运用系列</strong></p>
+<p><strong>app.js</strong></p>
 <blockquote>
-<p><a href="http://ihzen.com/2016/04/21/javascript-lazyloadimg/" target="_blank" rel="external">js图片懒加载</a><br><a href="http://ihzen.com/2016/05/10/javascript-swiper/" target="_blank" rel="external">jquery图片轮播原理及实现</a><br><a href="http://ihzen.com/2016/06/11/javascript-tab/" target="_blank" rel="external">使用面向对象方式封装选项卡</a></p>
+<p>所有页面的js加载都是在app.js之后，也就是说子页面下的js需要获取app.js中的公共信息，要使得app.js的请求完成才能进行下一步操作。<br>若是app.js动态更改公共信息，也可能使子页面的js获取不到值。<br>另外，子页面中的js不能改变app.js中设置的公共值</p>
 </blockquote>
 <hr>
-<p><strong>css系列</strong></p>
+<p><strong>未发布版本调试</strong></p>
 <blockquote>
-<p><a href="http://ihzen.com/2016/03/30/css-display/" target="_blank" rel="external">探索display的神奇用法</a><br><a href="http://ihzen.com/2016/06/10/css-border/" target="_blank" rel="external">border:0与border:none的区别</a><br><a href="http://ihzen.com/2016/07/16/css-switch/" target="_blank" rel="external">css3实现的switch开关按钮</a></p>
+<p>小程序未发布之前可以用手机通过扫描开发工具的二维码进行真机调试，这个调试需要手机开启调试模式才能请求成功连接到服务器。</p>
 </blockquote>
 <hr>
-<p><strong>《javascript设计模式与开发实践》笔记</strong></p>
-<hr>
-<p><strong>《CSS揭秘》笔记</strong></p>
+<p><strong>hidden</strong></p>
 <blockquote>
-<p><a href="http://ihzen.com/2016/06/20/css-center/" target="_blank" rel="external">《css揭秘》笔记：居中方法探讨</a><br><a href="http://ihzen.com/2016/07/16/css-checkbox/" target="_blank" rel="external">《css揭秘》笔记：自定义复选框</a></p>
+<p>组件中hidden的使用：不能直接写在组件中，需要依靠js赋值来设置。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><view hidden></view></h2></blockquote>
+<p><strong>onShow()</strong></p>
+<blockquote>
+<p>使用onShow()方法来调用其他js，可以使得该页面进入到下一层后再点击“回退”时重新加载页面，实现刷新页面</p>
 </blockquote>
 <hr>
-<p><strong>浏览器兼容系列</strong></p>
+<p><strong>模板引用</strong></p>
 <blockquote>
-<p><a href="http://ihzen.com/2016/08/11/cmd-gotop/" target="_blank" rel="external">Firefox下关于animate的一点小坑</a></p>
+<p>小程序中的模板引用经常失败，具体原因待查证。</p>
 </blockquote>
-<hr>
-<p><strong>其他文章</strong></p>
-<blockquote>
-<p><a href="http://ihzen.com/2016/03/13/hello-world/" target="_blank" rel="external">hello hexo</a><br><a href="http://ihzen.com/2016/03/16/markdown/" target="_blank" rel="external">markdown常用语法</a><br><a href="http://ihzen.com/2016/03/22/git/" target="_blank" rel="external">git简易入门</a><br><a href="http://ihzen.com/2016/04/07/swiper/" target="_blank" rel="external">swiper</a></p>
-</blockquote>
-<hr>
-<p><strong>关于我</strong></p>
-<blockquote>
-<p>真名黄自珍，英文名Anne</p>
-<p>来自湖南郴州，现漂泊于上海。</p>
-<p>喜欢写字和旅行，没想到走上了编程这条路。后来在前端之路越走越远，因为兴趣和热爱。</p>
-<p>最大的心愿是和一群有趣的人做一些有趣的事，仍然努力地，执著地，坚强地做自己想做的事，过自己想要的生活。</p>
-<p>如果你也和我一样，请好好生活。</p>
-<p>你知道吗，梦想总是能在荒芜人境之处开出一朵花。</p>
-</blockquote>
-<hr>
-<p>如果有兴趣 ，请加我的微信吧。<br><img src="/images/ercode.jpg" alt="image" title="图片"></p>
 
       
     </div>
@@ -275,6 +250,16 @@ this、call和apply的用法(一)this、call和apply的用">
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/11/javascript-registerform-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用装饰者重构表单验证（插件式的表单验证）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -285,7 +270,7 @@ this、call和apply的用法(一)this、call和apply的用">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="文章分类" data-url="http://wananys.github.io/about/复制 index.html"></div>
+	<div class="ds-thread" data-thread-key="wechat" data-title="微信小程序开发总结" data-url="http://wananys.github.io/2017/07/31/wechat/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -329,7 +314,7 @@ this、call和apply的用法(一)this、call和apply的用">
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
