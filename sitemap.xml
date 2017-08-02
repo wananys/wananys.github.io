@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wananys.github.io/2016/07/16/css-switch/</loc>
+    
+    <lastmod>2017-08-02T07:16:01.167Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wananys.github.io/2016/07/16/css-checkbox/</loc>
     
     <lastmod>2017-08-02T07:09:33.942Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://wananys.github.io/2016/04/21/javascript-lazyloadimg/</loc>
     
     <lastmod>2017-07-31T08:58:59.347Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wananys.github.io/2016/07/16/css-switch/</loc>
-    
-    <lastmod>2017-07-31T08:58:55.075Z</lastmod>
     
   </url>
   
