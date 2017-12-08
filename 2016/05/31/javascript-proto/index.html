@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>javascript原型和原型链详解 | ihzenHuang</title>
+  <title>javascript原型和原型链详解 | 简白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="本文为了解决以下问题：
 
@@ -16,7 +16,7 @@ __proto__属性(实例指向原型对象的指针)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript原型和原型链详解">
 <meta property="og:url" content="http://wananys.github.io/2016/05/31/javascript-proto/index.html">
-<meta property="og:site_name" content="ihzenHuang">
+<meta property="og:site_name" content="简白">
 <meta property="og:description" content="本文为了解决以下问题：
 
 
@@ -24,7 +24,7 @@ __proto__(实际原型)和prototype(原型属性)不一样！！！
 constructor属性(原型对象中包含这个属性，实例当中也同样会继承这个属性)
 prototype属性(constructor.prototype原型对象)
 __proto__属性(实例指向原型对象的指针)">
-<meta property="og:updated_time" content="2016-08-25T09:45:49.696Z">
+<meta property="og:updated_time" content="2016-08-25T09:45:49.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript原型和原型链详解">
 <meta name="twitter:description" content="本文为了解决以下问题：
@@ -35,7 +35,7 @@ constructor属性(原型对象中包含这个属性，实例当中也同样会�
 prototype属性(constructor.prototype原型对象)
 __proto__属性(实例指向原型对象的指针)">
   
-    <link rel="alternative" href="/atom.xml" title="ihzenHuang" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="简白" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -56,7 +56,7 @@ __proto__属性(实例指向原型对象的指针)">
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">ihzenHuang</a></h1>
+		  <h1 class="header-author"><a href="/">简白</a></h1>
 		</hgroup>
 
 		
@@ -128,7 +128,7 @@ __proto__属性(实例指向原型对象的指针)">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/border/" style="font-size: 10px;">border</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/this/" style="font-size: 12.5px;">this</a> <a href="/tags/兼容性/" style="font-size: 15px;">兼容性</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 10px;">小程序</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/border/" style="font-size: 10px;">border</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/center/" style="font-size: 10px;">center</a> <a href="/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/tags/css/" style="font-size: 17.5px;">css</a> <a href="/tags/display/" style="font-size: 10px;">display</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/this/" style="font-size: 12.5px;">this</a> <a href="/tags/兼容性/" style="font-size: 15px;">兼容性</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/小程序/" style="font-size: 10px;">小程序</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a>
 					</div>
 				</section>
 				
@@ -152,7 +152,7 @@ __proto__属性(实例指向原型对象的指针)">
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">ihzenHuang</h1>
+  		<h1 class="header-author js-mobile-header hide">简白</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -162,7 +162,7 @@ __proto__属性(实例指向原型对象的指针)">
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">ihzenHuang</h1>
+			  <h1 class="header-author">简白</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">being towords death...</p>
@@ -309,26 +309,6 @@ __proto__属性(实例指向原型对象的指针)">
 
 
 
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="javascript-proto" data-title="javascript原型和原型链详解" data-url="http://wananys.github.io/2016/05/31/javascript-proto/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"ihzenHuang"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
 
 
 </div>
@@ -336,7 +316,7 @@ __proto__属性(实例指向原型对象的指针)">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 ihzenHuang
+    		&copy; 2017 简白
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
